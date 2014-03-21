@@ -1,6 +1,6 @@
 {
   "name": "pagination-pager",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "{{pagination-pager}} - Ember.js Component for Bootstrap 3 pagination & pager components",
   "main": "pagination-pager.js",
   "scripts": {
