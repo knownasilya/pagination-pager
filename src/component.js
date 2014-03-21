@@ -1,5 +1,5 @@
 var PaginationPagerComponent = Ember.Component.extend({
-  tabName: 'ul',
+  tagName: 'ul',
   classNameBindings: ['pager:pager:pagination', 'paginationSizeClass'],
   pager: false,
   pagerNext: 'Next',
