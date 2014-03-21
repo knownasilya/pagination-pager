@@ -1,7 +1,7 @@
 var PaginationPagerComponent = Ember.Component.extend({
   tabName: 'ul',
-  classNameBindings: ['isPager:pager:pagination', 'paginationSizeClass'],
-  isPager: false,
+  classNameBindings: ['pager:pager:pagination', 'paginationSizeClass'],
+  pager: false,
   pagerNext: 'Next',
   pagerPrevious: 'Previous',
   paginationPrevious: '«',
@@ -11,9 +11,9 @@ var PaginationPagerComponent = Ember.Component.extend({
   
   paginationSizeClass: function () {
     var size = this.get('size'),
-        isPager = this.get('isPager');
+        pager = this.get('pager');
     
-    return !isPager && size && (size === 'lg' || size === 'sm') ? 'pagination-' + size : '';
+    return !pager && size && (size === 'lg' || size === 'sm') ? 'pagination-' + size : '';
   }.property('paginationSize'),
   
   isFirst: function () {

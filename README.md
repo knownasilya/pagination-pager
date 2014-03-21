@@ -45,7 +45,7 @@ Install via Bower, `bower install pagination-pager --save`, then include in your
 ```
 
 ### Available Options
-- `isPager` -- Switches to the pager component, defaults to `false`
+- `pager` -- Switches to the pager component, defaults to `false`
 
 #### Required
 - `count` -- The number of pages in total, required
