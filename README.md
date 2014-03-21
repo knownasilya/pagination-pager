@@ -47,12 +47,18 @@ Install via Bower, `bower install pagination-pager --save`, then include in your
 ```
 
 ### Available Options
+- `isPager` -- Switches to the pager component, defaults to `false`
 
+#### Required
 - `count` -- The number of pages in total, required
 - `current` -- The current page number, required
+
+#### Pagination Only
 - `paginationNext` -- The text to display for pagination next button
 - `paginationPrevious` -- The text to display for pagination previous button
-- `isPager` -- Switches to the pager component, defaults to `false`
+- `paginationSize` -- The size of the element, default is '', available options include `lg` and `sm`.
+
+#### Pager Only
 - `pagerNext` -- The text to display for the pager next button
 - `pagerPrevious` -- The text to display for the pager previous button
 - `pagerSpread` -- Pager buttons spaced out, defaults to false
