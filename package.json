@@ -32,6 +32,7 @@
     "gulp-concat": "^2.2.0",
     "gulp-uglify": "^0.2.1",
     "gulp-rename": "^1.2.0",
-    "gulp-clean": "^0.2.4"
+    "gulp-clean": "^0.2.4",
+    "gulp-es6-module-transpiler": "^0.1.0"
   }
 }

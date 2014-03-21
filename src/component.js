@@ -1,4 +1,4 @@
-var PaginationPagerComponent = Ember.Component.extend({
+export var PaginationPagerComponent = Ember.Component.extend({
   tagName: 'ul',
   classNameBindings: ['pager:pager:pagination', 'paginationSizeClass'],
   pager: false,
@@ -50,16 +50,3 @@ var PaginationPagerComponent = Ember.Component.extend({
     }
   }
 });
-
-var PaginationPageController = Ember.ObjectController.extend({
-  isActive: function () {
-    return this.get('content') === this.get('parentController.current');
-  }.property('content', 'parentController.current'),
-                                                  
-  actions: {
-    setCurrent: function () {
-      this.set('parentController.current', this.get('content'));
-    }
-  }
-});
-

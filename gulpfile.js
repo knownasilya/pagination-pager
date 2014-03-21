@@ -4,6 +4,7 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var clean = require('gulp-clean');
 var handlebars = require('gulp-ember-handlebars');
+var es6ModuleTranspiler = require('gulp-es6-module-transpiler');
 
 gulp.task('clean-dist', function () {
   gulp.src('dist', { read: false })
@@ -27,6 +28,7 @@ gulp.task('templates', function(){
 
 gulp.task('scripts', function () {
   gulp.src(['src/item-controller.js', 'src/component.js', 'src/initializer.js'])
+    .pipe(es6ModuleTranspiler({}))
     .pipe(concat('pagination-pager.js'))
     .pipe(gulp.dest('dist'))
     .pipe(uglify())
