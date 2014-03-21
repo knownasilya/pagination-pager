@@ -6,7 +6,7 @@
     "Ilya Radchenko <ilya@burstcreations.com>"
   ],
   "description": "{{pagination-pager}} - Ember.js Component for Bootstrap 3 pagination & pager components",
-  "main": "pagination-pager.js",
+  "main": "dist/pagination-pager.js",
   "keywords": [
     "pagination",
     "pager",
