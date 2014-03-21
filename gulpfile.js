@@ -13,7 +13,10 @@ gulp.task('clean-dist', function () {
 gulp.task('templates', function(){
   gulp.src('src/template.hbs')
     .pipe(handlebars({
-      outputType: 'browser'
+      outputType: 'browser',
+      processName: function () {
+        return 'components/pagination-pager';
+      }
      }))
     .pipe(rename('pagination-pager.template.js'))
     .pipe(gulp.dest('dist'))
