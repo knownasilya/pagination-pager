@@ -1,0 +1,20 @@
+{{#unless isPager}}
+  <li {{bind-attr class=':previous isFirst:disabled'}}>
+    <a href="#" {{action 'previous'}}>{{paginationPrevious}}</a>
+  </li>
+  {{#each pages itemController='paginationPage'}}
+    <li {{bind-attr class='isActive:active'}}>
+      <a href="#" {{action 'setCurrent'}}>{{content}}</a>
+    </li>
+  {{/each}}
+  <li {{bind-attr class=':next isLast:disabled'}}>
+    <a href="#" {{action 'next'}}>{{paginationNext}}</a>
+  </li>
+{{else}}
+  <li {{bind-attr class='pagerSpread:previous isFirst:disabled'}}>
+    <a href="#" {{action 'previous'}}>{{pagerPrevious}}</a>
+  </li>
+  <li {{bind-attr class='pagerSpread:next isLast:disabled'}}>
+    <a href="#" {{action 'next'}}>{{pagerNext}}</a>
+  </li>
+{{/unless}}

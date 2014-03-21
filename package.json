@@ -1,0 +1,37 @@
+{
+  "name": "pagination-pager",
+  "version": "0.0.0",
+  "description": "{{pagination-pager}} - Ember.js Component for Bootstrap 3 pagination & pager components",
+  "main": "pagination-pager.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/knownasilya/pagination-pager.git"
+  },
+  "keywords": [
+    "pagination",
+    "pager",
+    "bootstrap",
+    "bs3",
+    "component",
+    "ember",
+    "emberjs"
+  ],
+  "author": "Ilya Radchenko <ilya@burstcreations.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/knownasilya/pagination-pager/issues"
+  },
+  "homepage": "https://github.com/knownasilya/pagination-pager",
+  "devDependencies": {
+    "mocha": "^1.18.2",
+    "gulp-ember-handlebars": "^0.6.0",
+    "gulp": "^3.5.6",
+    "gulp-concat": "^2.2.0",
+    "gulp-uglify": "^0.2.1",
+    "gulp-rename": "^1.2.0",
+    "gulp-clean": "^0.2.4"
+  }
+}
