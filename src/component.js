@@ -1,4 +1,4 @@
-export var PaginationPagerComponent = Ember.Component.extend({
+var PaginationPagerComponent = Ember.Component.extend({
   tagName: 'ul',
   classNameBindings: ['pager:pager:pagination', 'paginationSizeClass'],
   pager: false,
@@ -50,3 +50,5 @@ export var PaginationPagerComponent = Ember.Component.extend({
     }
   }
 });
+
+export default PaginationPagerComponent;

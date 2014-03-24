@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import PaginationPagerComponent from 'component';
 import PaginationPageController from 'item-controller';
 

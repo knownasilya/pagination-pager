@@ -1,4 +1,4 @@
-export var PaginationPageController = Ember.ObjectController.extend({
+var PaginationPageController = Ember.ObjectController.extend({
   isActive: function () {
     return this.get('content') === this.get('parentController.current');
   }.property('content', 'parentController.current'),
@@ -10,3 +10,4 @@ export var PaginationPageController = Ember.ObjectController.extend({
   }
 });
 
+export default PaginationPageController;

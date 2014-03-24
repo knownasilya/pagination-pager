@@ -11,8 +11,9 @@
       }
     }
   });
+
   __exports__.PaginationPageController = PaginationPageController;
-})(window);
+})(PP);
 (function(__exports__) {
   "use strict";
   var PaginationPagerComponent = Ember.Component.extend({
@@ -67,12 +68,14 @@
       }
     }
   });
+
   __exports__.PaginationPagerComponent = PaginationPagerComponent;
-})(window);
-(function(__dependency1__, __dependency2__) {
+})(PP);
+(function(__dependency1__, __dependency2__, __dependency3__) {
   "use strict";
-  var PaginationPagerComponent = __dependency1__;
-  var PaginationPageController = __dependency2__;
+  var Ember = __dependency1__;
+  var PaginationPagerComponent = __dependency2__;
+  var PaginationPageController = __dependency3__;
 
   Ember.Application.initializer({
     name: 'pagination-pager',
@@ -83,4 +86,4 @@
       application.inject('component:pagination-pager', 'paginationPage', 'controller:paginationPage');
     }
   });
-})(window.component, window.item-controller);
+})(PP.Ember, PP.component, PP.item-controller);
