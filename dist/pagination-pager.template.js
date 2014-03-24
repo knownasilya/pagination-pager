@@ -10,7 +10,7 @@ function program1(depth0,data) {
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
     'class': (":previous isFirst:disabled")
   },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[],types:[],data:data})));
-  data.buffer.push(">\n    <a ");
+  data.buffer.push(">\n    <a href=\"#\" ");
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "previous", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data})));
   data.buffer.push(">");
   stack1 = helpers._triageMustache.call(depth0, "paginationPrevious", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
@@ -24,7 +24,7 @@ function program1(depth0,data) {
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
     'class': (":next isLast:disabled")
   },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[],types:[],data:data})));
-  data.buffer.push(">\n    <a ");
+  data.buffer.push(">\n    <a href=\"#\" ");
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "next", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data})));
   data.buffer.push(">");
   stack1 = helpers._triageMustache.call(depth0, "paginationNext", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
@@ -39,7 +39,7 @@ function program2(depth0,data) {
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
     'class': ("isActive:active")
   },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[],types:[],data:data})));
-  data.buffer.push(">\n      <a ");
+  data.buffer.push(">\n      <a href=\"#\" ");
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "setCurrent", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data})));
   data.buffer.push(">");
   stack1 = helpers._triageMustache.call(depth0, "content", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
@@ -55,7 +55,7 @@ function program4(depth0,data) {
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
     'class': ("pagerSpread:previous isFirst:disabled")
   },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[],types:[],data:data})));
-  data.buffer.push(">\n    <a ");
+  data.buffer.push(">\n    <a href=\"#\" ");
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "previous", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data})));
   data.buffer.push(">");
   stack1 = helpers._triageMustache.call(depth0, "pagerPrevious", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
@@ -64,7 +64,7 @@ function program4(depth0,data) {
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
     'class': ("pagerSpread:next isLast:disabled")
   },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[],types:[],data:data})));
-  data.buffer.push(">\n    <a ");
+  data.buffer.push(">\n    <a href=\"#\" ");
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "next", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data})));
   data.buffer.push(">");
   stack1 = helpers._triageMustache.call(depth0, "pagerNext", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});

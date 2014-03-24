@@ -48,6 +48,11 @@ var PaginationPagerComponent = Ember.Component.extend({
                                                    
     return result; 
   }.property('count'),
+
+  click: function (event) {
+    // stop `#` from jumping to top of page
+    event.preventDefault();
+  },
   
   actions: {
     next: function () {
