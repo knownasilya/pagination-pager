@@ -9,5 +9,3 @@ var PaginationPageController = Ember.ObjectController.extend({
     }
   }
 });
-
-export default = PaginationPageController;

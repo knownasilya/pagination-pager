@@ -3,8 +3,8 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var clean = require('gulp-clean');
+var wrap = require('gulp-wrap');
 var handlebars = require('gulp-ember-handlebars');
-var es6ModuleTranspiler = require('gulp-es6-module-transpiler');
 
 gulp.task('clean-dist', function () {
   gulp.src('dist', { read: false })
@@ -28,9 +28,8 @@ gulp.task('templates', function(){
 
 gulp.task('scripts', function () {
   gulp.src(['src/item-controller.js', 'src/component.js', 'src/initializer.js'])
-    .pipe(es6ModuleTranspiler({
-    }))
     .pipe(concat('pagination-pager.js'))
+    .pipe(wrap('(function (Ember) {\n<%= contents %>\n}(window.Ember));'))
     .pipe(gulp.dest('dist'))
     .pipe(uglify())
     .pipe(rename('pagination-pager.min.js'))

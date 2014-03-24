@@ -50,5 +50,3 @@ var PaginationPagerComponent = Ember.Component.extend({
     }
   }
 });
-
-export default = PaginationPagerComponent;

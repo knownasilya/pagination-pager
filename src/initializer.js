@@ -1,6 +1,3 @@
-import PaginationPagerComponent from 'component';
-import PaginationPageController from 'item-controller';
-
 Ember.Application.initializer({
   name: 'pagination-pager',
 
