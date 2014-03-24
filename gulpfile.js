@@ -29,7 +29,6 @@ gulp.task('templates', function(){
 gulp.task('scripts', function () {
   gulp.src(['src/item-controller.js', 'src/component.js', 'src/initializer.js'])
     .pipe(es6ModuleTranspiler({
-      global: 'PP',
       imports: {
         ember: 'Ember'
       }
