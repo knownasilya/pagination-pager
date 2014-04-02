@@ -1,11 +1,11 @@
 {
   "name": "pagination-pager",
-  "version": "0.1.6",
+  "version": "0.1.7",
+  "description": "{{pagination-pager}} - Ember.js Component for Bootstrap 3 pagination & pager components",
   "homepage": "https://github.com/knownasilya/pagination-pager",
   "authors": [
     "Ilya Radchenko <ilya@burstcreations.com>"
   ],
-  "description": "{{pagination-pager}} - Ember.js Component for Bootstrap 3 pagination & pager components",
   "main": "dist/pagination-pager.js",
   "keywords": [
     "pagination",
