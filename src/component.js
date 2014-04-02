@@ -7,6 +7,7 @@ var PaginationPagerComponent = Ember.Component.extend({
   paginationPrevious: '«',
   paginationNext: '»',
   firstPage: 1,
+  current: 1,
   lastPage: Ember.computed.alias('count'),
   
   paginationSizeClass: function () {
@@ -17,11 +18,11 @@ var PaginationPagerComponent = Ember.Component.extend({
   }.property('paginationSize'),
   
   isFirst: function () {
-    return this.get('current') === this.get('firstPage');
+    return this.get('current') == this.get('firstPage');
   }.property('firstPage', 'current'),
   
   isLast: function () {
-    return this.get('current') === this.get('lastPage');
+    return this.get('current') == this.get('lastPage');
   }.property('lastPage', 'current'),
                                                   
   pages: function () {
