@@ -22,6 +22,10 @@ var PaginationPagerComponent = Ember.Component.extend({
   firstPage: 1,
   current: 1,
   lastPage: Ember.computed.alias('count'),
+
+  currentPage: function () {
+    return Number(this.get('current'));
+  }.property('current'),
   
   paginationSizeClass: function () {
     var size = this.get('size'),
@@ -58,13 +62,15 @@ var PaginationPagerComponent = Ember.Component.extend({
   actions: {
     next: function () {
       if (!this.get('isLast')) {
-        this.incrementProperty('current');
+        var current = this.get('current');
+        this.set('current', parseInt(current, 10) + 1);
       }
     },
       
     previous: function () {
       if (!this.get('isFirst')) {
-        this.decrementProperty('current');
+        var current = this.get('current');
+        this.set('current', parseInt(current, 10) - 1);
       }
     }
   }
