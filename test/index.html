@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>pagination-pager</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  </head>
+  <body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v1.3.0.js"></script>
+    <script src="http://builds.emberjs.com/tags/v1.5.1/ember.js"></script>
+    <script src="pagination-pager.template.js"></script>
+    <script src="pagination-pager.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <script>
+      var App = Ember.Application.create();
+    </script>
+
+    <script type="text/x-handlebars">
+      {{pagination-pager count=5 current=2 pager=true pagerNext='New' pagerPrevious='Old'}}<br>
+      {{pagination-pager count=5 current=1 pager=true pagerSpread=true}}<br>
+      {{pagination-pager count=5 current=2}}<br>
+      {{pagination-pager count=5 current=1}}<br>
+      {{pagination-pager count=5 current=5 size='lg'}}<br>
+      {{pagination-pager count=5 current=5 size='lg' paginationNext='next' paginationPrevious='previous'}}
+    </script>
+
+    <script src="//localhost:35729/livereload.js"></script>
+  </body>
+</html>
