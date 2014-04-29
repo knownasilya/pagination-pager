@@ -14,7 +14,8 @@
     "bs3",
     "component",
     "ember",
-    "emberjs"
+    "emberjs",
+    "web-components"
   ],
   "license": "MIT",
   "ignore": [
