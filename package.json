@@ -4,7 +4,8 @@
   "description": "{{pagination-pager}} - Ember.js Component for Bootstrap 3 pagination & pager components",
   "main": "pagination-pager.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start": "rm -rf dist && mkdir dist && gulp && goat -e test/index.html dist"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
   },
   "homepage": "https://github.com/knownasilya/pagination-pager",
   "devDependencies": {
+    "goat": "^0.4.1",
     "gulp": "^3.5.6",
     "gulp-clean": "^0.2.4",
     "gulp-concat": "^2.2.0",

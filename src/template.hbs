@@ -3,9 +3,15 @@
     <a href="#" {{action 'previous'}}>{{paginationPrevious}}</a>
   </li>
   {{#each pages itemController='paginationPage'}}
-    <li {{bind-attr class='isActive:active'}}>
-      <a href="#" {{action 'setCurrent'}}>{{content}}</a>
-    </li>
+    {{#if isDots}}
+      <li {{bind-attr class='isActive:active'}}>
+        <a>{{content}}</a>
+      </li>
+    {{else}}
+      <li {{bind-attr class='isActive:active'}}>
+        <a href="#" {{action 'setCurrent'}}>{{content}}</a>
+      </li>
+    {{/if}}
   {{/each}}
   <li {{bind-attr class=':next isLast:disabled'}}>
     <a href="#" {{action 'next'}}>{{paginationNext}}</a>
