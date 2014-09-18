@@ -1,5 +1,7 @@
-Ember.TEMPLATES["components/pagination-pager"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
-this.compilerInfo = [4,'>= 1.0.0'];
+this["Ember"] = this["Ember"] || {};
+this["Ember"]["TEMPLATES"] = this["Ember"]["TEMPLATES"] || {};
+this["Ember"]["TEMPLATES"]["components/pagination-pager"] = Ember.Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   var buffer = '', stack1, escapeExpression=this.escapeExpression, self=this;
 
@@ -100,5 +102,4 @@ function program7(depth0,data) {
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n");
   return buffer;
-  
-});
+  });

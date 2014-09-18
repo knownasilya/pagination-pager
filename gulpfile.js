@@ -4,9 +4,11 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var clean = require('gulp-clean');
 var wrap = require('gulp-wrap');
-var handlebars = require('gulp-ember-handlebars');
+var declare = require('gulp-declare');
+var precompile = require('ember-template-compiler').precompile;
 var livereload = require('gulp-livereload');
 var serve = require('gulp-serve');
+var through = require('through2');
 var name = 'pagination-pager';
 
 gulp.task('clean-dist', function () {
@@ -16,12 +18,25 @@ gulp.task('clean-dist', function () {
 
 gulp.task('templates', function(){
   gulp.src('src/template.hbs')
-    .pipe(handlebars({
-      outputType: 'browser',
+    .pipe(through.obj(function (file, encoding, done) {
+      if (file.isBuffer()) {
+        var contents = file._contents.toString();
+        var precompiled = precompile(contents, false);
+
+        file._contents = new Buffer(precompiled);
+      }
+
+      this.push(file);
+      return done();
+    }))
+    .pipe(wrap('Ember.Handlebars.template(<%= contents %>)'))
+    .pipe(declare({
+      namespace: 'Ember.TEMPLATES',
+      noRedeclare: true, // Avoid duplicate declarations
       processName: function () {
         return 'components/' + name;
       }
-     }))
+    }))
     .pipe(rename(name + '.template.js'))
     .pipe(gulp.dest('dist'))
     .pipe(uglify())
