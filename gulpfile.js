@@ -41,13 +41,14 @@ gulp.task('scripts', function () {
 
 gulp.task('serve', serve(['test', 'dist']));
 
-gulp.task('dev', function() {
+gulp.task('dev', ['default'], function() {
   var server = livereload();
 
-  gulp.start('default');
-  gulp.start('serve');
   gulp.watch('src/*', ['templates', 'scripts']);
   gulp.watch('dist/*.js').on('change', function(file) {
+    server.changed(file.path);
+  });
+  gulp.watch('test/index.html').on('change', function(file) {
     server.changed(file.path);
   });
 });
