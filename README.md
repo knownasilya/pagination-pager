@@ -66,8 +66,12 @@ By default the first page is `1`, and the last is the value of `count`, you can 
 ## Testing
 
 ```bash
+# install & start server
 npm install
 npm start
+
+# start watch (in new terminal)
+gulp dev
 ```
 
 [1]: http://emberjs.jsbin.com/nuroraxe/2/
