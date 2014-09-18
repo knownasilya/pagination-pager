@@ -42,15 +42,11 @@ gulp.task('scripts', function () {
 gulp.task('serve', serve(['test', 'dist']));
 
 gulp.task('dev', ['default'], function() {
-  var server = livereload();
+  livereload.listen();
 
   gulp.watch('src/*', ['templates', 'scripts']);
-  gulp.watch('dist/*.js').on('change', function(file) {
-    server.changed(file.path);
-  });
-  gulp.watch('test/index.html').on('change', function(file) {
-    server.changed(file.path);
-  });
+  gulp.watch('dist/*.js').on('change', livereload.changed);
+  gulp.watch('test/index.html').on('change', livereload.changed);
 });
 
 gulp.task('default', ['clean-dist', 'templates', 'scripts']);
