@@ -11,38 +11,7 @@ Here's a [demo][1] jsbin, and these are the original Bootstrap Components: [Pagi
 
 ## Getting Started
 
-Install via Bower, `bower install pagination-pager --save`, then include in your page, and start using:
-
-```html
-<!doctype html>
-
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>pagination-pager</title>
-
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-</head>
-
-<body>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v1.3.0.js"></script>
-  <script src="http://builds.emberjs.com/tags/v1.4.0/ember.js"></script>
-  <script src="https://rawgithub.com/knownasilya/pagination-pager/master/dist/pagination-pager.template.js"></script>
-  <script src="https://rawgithub.com/knownasilya/pagination-pager/master/dist/pagination-pager.js"></script>
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-  
-  <!-- application.hbs template -->
-  <script type="text/x-handlebars">
-    {{pagination-pager count=5 current=2}}
-  </script>
-
-  <script>
-    var App = Ember.Application.create();
-  </script>
-</body>
-</html>
-```
+Install via Bower, `bower install pagination-pager --save`, then include in your app.
 
 ### Available Options
 - `pager` -- Switches to the pager component, defaults to `false`
@@ -75,6 +44,40 @@ npm start
 
 # start watch (in new terminal)
 gulp dev
+```
+
+## Example Usage
+
+
+```html
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>pagination-pager</title>
+
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
+
+<body>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v1.3.0.js"></script>
+  <script src="http://builds.emberjs.com/tags/v1.4.0/ember.js"></script>
+  <script src="https://rawgithub.com/knownasilya/pagination-pager/master/dist/pagination-pager.template.js"></script>
+  <script src="https://rawgithub.com/knownasilya/pagination-pager/master/dist/pagination-pager.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  
+  <!-- application.hbs template -->
+  <script type="text/x-handlebars">
+    {{pagination-pager count=5 current=2}}
+  </script>
+
+  <script>
+    var App = Ember.Application.create();
+  </script>
+</body>
+</html>
 ```
 
 [1]: http://emberjs.jsbin.com/nuroraxe/2/
