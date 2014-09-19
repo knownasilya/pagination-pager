@@ -1,7 +1,8 @@
 var PaginationPagerComponent = Ember.Component.extend({
   tagName: 'ul',
-  classNameBindings: ['pager:pager:pagination', 'paginationSizeClass'],
+  classNameBindings: ['pager:pager:pagination', 'isHidden:hidden', 'paginationSizeClass'],
   pager: false,
+  hide: false,
   pagerNext: 'Next',
   pagerPrevious: 'Previous',
   paginationPrevious: '«',
@@ -31,19 +32,26 @@ var PaginationPagerComponent = Ember.Component.extend({
   isLast: function () {
     return this.get('current') == this.get('lastPage');
   }.property('lastPage', 'current'),
+
+  isHidden: function () {
+    if (this.get('hide')) {
+      return (this.get('count') === 1);
+    }
+    return false;
+  }.property('hide', 'count'),
                                                   
   pages: function () {
-    var seperator = this.get('seperator');
-    var current = this.get('current');
-    var count = this.get('count');
-    var countOut = this.get('countOut');
-    var countIn = this.get('countIn');
-    var result = [];
-    var i = 1;
+    var seperator = this.get('seperator'),
+        current = this.get('current'),
+        count = this.get('count'),
+        countOut = this.get('countOut'),
+        countIn = this.get('countIn'),
+        result = [],
+        i;
 
     // Beginning group of pages: n1...n2
     var n1 = 1;
-    var n2 = Math.min(countOut, 10);
+    var n2 = Math.min(countOut, count);
 
     // Ending group of pages: n7...n8
     var n7 = Math.max(1, (count - countOut + 1));
