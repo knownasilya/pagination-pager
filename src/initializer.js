@@ -1,3 +1,6 @@
+/* global PaginationPagerComponent, PaginationPageController */
+'use strict';
+
 Ember.Application.initializer({
   name: 'pagination-pager',
 

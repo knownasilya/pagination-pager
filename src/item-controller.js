@@ -1,6 +1,8 @@
+'use strict';
+
 var PaginationPageController = Ember.ObjectController.extend({
   isActive: function () {
-    return this.get('content') == this.get('parentController.current');
+    return this.get('content') === this.get('parentController.current');
   }.property('content', 'parentController.current'),
 
   isDots: function () {

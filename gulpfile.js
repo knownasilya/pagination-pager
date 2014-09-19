@@ -8,12 +8,21 @@ var declare = require('gulp-declare');
 var precompile = require('ember-template-compiler').precompile;
 var livereload = require('gulp-livereload');
 var serve = require('gulp-serve');
+var jshint = require('gulp-jshint');
+var stylish = require('jshint-stylish');
 var through = require('through2');
 var name = 'pagination-pager';
 
 gulp.task('clean-dist', function () {
   gulp.src('dist', { read: false })
     .pipe(clean());
+});
+
+gulp.task('lint', function () {
+  return gulp.src(['./src/**/*.js'])
+    .pipe(jshint())
+    .pipe(jshint.reporter(stylish))
+    .pipe(jshint.reporter('fail'));
 });
 
 gulp.task('templates', function(){
@@ -64,5 +73,5 @@ gulp.task('dev', ['default'], function() {
   gulp.watch('test/index.html').on('change', livereload.changed);
 });
 
-gulp.task('default', ['clean-dist', 'templates', 'scripts']);
+gulp.task('default', ['clean-dist', 'lint', 'templates', 'scripts']);
 
