@@ -1,25 +1,38 @@
-# Pagination-pager
+pagination-pager
+================
 
-This README outlines the details of collaborating on this Ember addon.
+Ember Component for Bootstrap 3 Pagination &amp; Pager components
 
-## Installation
+*Note: Ember-CLI support from 1.x onward.*
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+```hbs
+{{pagination-pager current=2 count=10}}
+```
 
-## Running
+Here's a [demo][1] jsbin, and these are the original Bootstrap Components: [Pagination][2] and [Pager][3].
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+## Getting Started
 
-## Running Tests
+Install via npm, `npm install pagination-pager --save-dev`, then use in your app.
 
-* `ember test`
-* `ember test --server`
+### Available Options
+- `pager` -- Switches to the pager component, defaults to `false`
+- `hide` -- Hide the component if `count` equals `1`, defaults to `false`
 
-## Building
+#### Required
+- `count` -- The number of pages in total, required
+- `current` -- The current page number, required
 
-* `ember build`
+#### Pagination Only
+- `paginationNext` -- The text to display for pagination next button
+- `paginationPrevious` -- The text to display for pagination previous button
+- `paginationSize` -- The size of the element, default is '', available options include `lg` and `sm`.
+- `countOut` -- The number of page links in the begin and end of whole range
+- `countIn` -- The number of page links on each side of current page
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+#### Pager Only
+- `pagerNext` -- The text to display for the pager next button
+- `pagerPrevious` -- The text to display for the pager previous button
+- `pagerSpread` -- Pager buttons spaced out, defaults to false
+
+By default the first page is `1`, and the last is the value of `count`, you can change these by setting `firstPage` and `lastPage`.
