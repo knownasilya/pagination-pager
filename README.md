@@ -3,7 +3,7 @@ pagination-pager
 
 Ember Component for Bootstrap 3 Pagination &amp; Pager components
 
-*Note: Ember-CLI support from 1.x onward.*
+*Note: Ember-CLI support from 1.x onward. For old globals version use v0.2.0 from Bower.*
 
 ```hbs
 {{pagination-pager current=2 count=10}}
