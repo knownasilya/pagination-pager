@@ -1,4 +1,4 @@
-pagination-pager
+pagination-pager [![Build Status](https://travis-ci.org/knownasilya/pagination-pager.svg)](https://travis-ci.org/knownasilya/pagination-pager)
 ================
 
 Ember Component for Bootstrap 3 Pagination &amp; Pager components
