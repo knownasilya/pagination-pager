@@ -36,3 +36,7 @@ Install via npm, `npm install pagination-pager --save-dev`, then use in your app
 - `pagerSpread` -- Pager buttons spaced out, defaults to false
 
 By default the first page is `1`, and the last is the value of `count`, you can change these by setting `firstPage` and `lastPage`.
+
+[1]: http://emberjs.jsbin.com/nuroraxe/2/
+[2]: http://getbootstrap.com/components/#pagination
+[3]: http://getbootstrap.com/components/#pagination-pager
