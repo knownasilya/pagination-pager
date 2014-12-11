@@ -1,6 +1,9 @@
-'use strict';
+import Ember from 'ember';
 
-var PaginationPagerComponent = Ember.Component.extend({
+var computed = Ember.computed;
+var alias = computed.alias;
+
+export default Ember.Component.extend({
   tagName: 'ul',
   classNameBindings: ['pager:pager:pagination', 'isHidden:hidden', 'paginationSizeClass'],
   pager: false,
@@ -14,42 +17,42 @@ var PaginationPagerComponent = Ember.Component.extend({
   countIn: 2,
   firstPage: 1,
   current: 1,
-  lastPage: Ember.computed.alias('count'),
+  lastPage: alias('count'),
 
-  currentPage: function () {
+  currentPage: computed('current', function () {
     return Number(this.get('current'));
-  }.property('current'),
-  
-  paginationSizeClass: function () {
+  }),
+
+  paginationSizeClass: computed('paginationSize', function () {
     var size = this.get('size');
     var pager = this.get('pager');
-    
-    return !pager && size && (size === 'lg' || size === 'sm') ? 'pagination-' + size : '';
-  }.property('paginationSize'),
-  
-  isFirst: function () {
-    return this.get('current') === this.get('firstPage');
-  }.property('firstPage', 'current'),
-  
-  isLast: function () {
-    return this.get('current') === this.get('lastPage');
-  }.property('lastPage', 'current'),
 
-  isHidden: function () {
+    return !pager && size && (size === 'lg' || size === 'sm') ? 'pagination-' + size : '';
+  }),
+
+  isFirst: computed('firstPage', 'current', function () {
+    return this.get('current') === this.get('firstPage');
+  }),
+
+  isLast: computed('lastPage', 'current', function () {
+    return this.get('current') === this.get('lastPage');
+  }),
+
+  isHidden: computed('hide', 'count', function () {
     if (this.get('hide')) {
       return (this.get('count') === 1);
     }
     return false;
-  }.property('hide', 'count'),
-                                                  
-  pages: function () {
-    var seperator = this.get('seperator'),
-        current = this.get('current'),
-        count = this.get('count'),
-        countOut = this.get('countOut'),
-        countIn = this.get('countIn'),
-        result = [],
-        i;
+  }),
+
+  pages: computed('count', 'current', 'countOut', 'countIn', function () {
+    var seperator = this.get('seperator');
+    var current = this.get('current');
+    var count = this.get('count');
+    var countOut = this.get('countOut');
+    var countIn = this.get('countIn');
+    var result = [];
+    var i;
 
     // Beginning group of pages: n1...n2
     var n1 = 1;
@@ -100,13 +103,13 @@ var PaginationPagerComponent = Ember.Component.extend({
     });
 
     return result;
-  }.property('count', 'current', 'countOut', 'countIn'),
+  }),
 
   click: function (event) {
     // stop `#` from jumping to top of page
     event.preventDefault();
   },
-  
+
   actions: {
     next: function () {
       if (!this.get('isLast')) {
@@ -115,7 +118,7 @@ var PaginationPagerComponent = Ember.Component.extend({
         this.set('current', parseInt(current, 10) + 1);
       }
     },
-      
+
     previous: function () {
       if (!this.get('isFirst')) {
         var current = this.get('current');

@@ -1,18 +1,14 @@
+{{log pages}}
+{{log pager}}
 {{#unless pager}}
   <li {{bind-attr class=':previous isFirst:disabled'}}>
     <a href="#" {{action 'previous'}}>{{paginationPrevious}}</a>
   </li>
-  {{#each pages itemController='paginationPage'}}
-    {{#if isDots}}
-      <li {{bind-attr class='isActive:active'}}>
-        <a>{{content}}</a>
-      </li>
-    {{else}}
-      <li {{bind-attr class='isActive:active'}}>
-        <a href="#" {{action 'setCurrent'}}>{{content}}</a>
-      </li>
-    {{/if}}
+
+  {{#each page in pages}}
+    {{page-item page=page selected=current seperator=seperator}}
   {{/each}}
+
   <li {{bind-attr class=':next isLast:disabled'}}>
     <a href="#" {{action 'next'}}>{{paginationNext}}</a>
   </li>
