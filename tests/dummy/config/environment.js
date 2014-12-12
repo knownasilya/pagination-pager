@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'dummy',
     environment: environment,
-    baseURL: '/',
+    baseURL: '/pagination-pager',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
