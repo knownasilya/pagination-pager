@@ -9,7 +9,7 @@ Ember Component for Bootstrap 3 Pagination &amp; Pager components
 {{pagination-pager current=2 count=10}}
 ```
 
-Here's a [demo][1] jsbin, and these are the original Bootstrap Components: [Pagination][2] and [Pager][3].
+Here's a [demo][1], and these are the original Bootstrap Components: [Pagination][2] and [Pager][3].
 
 ## Getting Started
 
@@ -55,6 +55,10 @@ actions: {
 
 By default the first page is `1`, and the last is the value of `count`, you can change these by setting `firstPage` and `lastPage`.
 
-[1]: http://emberjs.jsbin.com/nuroraxe/2/
+## Testing
+
+`ember test` works just fine, plus `ember serve` and then visit 'http://localhost:4200/pagination-pager/' to see the dummy app.
+
+[1]: http://knownasilya.github.io/pagination-pager/
 [2]: http://getbootstrap.com/components/#pagination
 [3]: http://getbootstrap.com/components/#pagination-pager
