@@ -125,6 +125,10 @@ export default Ember.Component.extend({
 
         this.set('current', parseInt(current, 10) - 1);
       }
+    },
+
+    pageChanged: function (page, previous) {
+      this.sendAction('change', page, previous);
     }
   }
 });

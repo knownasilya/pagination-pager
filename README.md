@@ -19,6 +19,24 @@ Install via npm, `npm install pagination-pager --save-dev`, then use in your app
 - `pager` -- Switches to the pager component, defaults to `false`
 - `hide` -- Hide the component if `count` equals `1`, defaults to `false`
 
+Action:
+
+- `change` -- Action that returns `currentPage` and `previousPage`, e.g.
+
+```hbs
+{{pagination-pager count=count current=current change='pageChanged'}}
+```
+
+```js
+actions: {
+  // clicking on '2' after '5'
+  pageChanged: function (current, previous) {
+    console.log(current, previous);
+    // => 2, 5
+  }
+}
+```
+
 #### Required
 - `count` -- The number of pages in total, required
 - `current` -- The current page number, required

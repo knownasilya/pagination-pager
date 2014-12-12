@@ -20,7 +20,13 @@ export default Ember.Component.extend({
 
   actions: {
     setCurrent: function () {
-      this.set('selected', this.get('page'));
+      var last = this.get('selected');
+      var page = this.get('page');
+
+      if (page !== last) {
+        this.set('selected', page);
+        this.sendAction('pageSet', page, last);
+      }
     }
   }
 });
