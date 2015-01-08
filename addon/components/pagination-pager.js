@@ -20,6 +20,26 @@ export default Ember.Component.extend({
   urlTemplate: '#',
   lastPage: alias('count'),
 
+  previousUrl: computed('urlTemplate', 'current', 'firstPage', function () {
+    var urlTemplate = this.get('urlTemplate');
+    var current = this.get('current');
+    var firstPage = this.get('firstPage');
+
+    urlTemplate = urlTemplate.replace('{current}', current > firstPage ? current - 1 : current);
+
+    return urlTemplate;
+  }),
+
+  nextUrl: computed('urlTemplate', 'current', 'count', function () {
+    var urlTemplate = this.get('urlTemplate');
+    var current = this.get('current');
+    var count = this.get('count');
+
+    urlTemplate = urlTemplate.replace('{current}', current < count ? current + 1 : current);
+
+    return urlTemplate;
+  }),
+
   currentPage: computed('current', function () {
     return Number(this.get('current'));
   }),
