@@ -16,10 +16,34 @@ Here's a [demo][1], and these are the original Bootstrap Components: [Pagination
 Install via npm, `npm install pagination-pager --save-dev`, then use in your app.
 
 ### Available Options
+
+To switch to the pager UI, set the `pager` attribute to `true`, see the optional section.
+
+By default the first page is `1`, and the last is the value of `count`, you can change these by setting `firstPage` and `lastPage`.
+
+#### Required
+- `count` -- The number of pages in total, required
+- `current` -- The current page number, required
+
+#### Optional
 - `pager` -- Switches to the pager component, defaults to `false`
+- `urlTemplate` -- Url template for supporting opening pages in new windows, defaults to '#'.
+  `urlTemplate` should be in the form of `http://myurl.com/#/posts?page={current}`.
 - `hide` -- Hide the component if `count` equals `1`, defaults to `false`
 
-Action:
+#### Pagination Only
+- `paginationNext` -- The text to display for pagination next button
+- `paginationPrevious` -- The text to display for pagination previous button
+- `paginationSize` -- The size of the element, default is '', available options include `lg` and `sm`.
+- `countOut` -- The number of page links in the begin and end of whole range
+- `countIn` -- The number of page links on each side of current page
+
+#### Pager Only
+- `pagerNext` -- The text to display for the pager next button
+- `pagerPrevious` -- The text to display for the pager previous button
+- `pagerSpread` -- Pager buttons spaced out, defaults to false
+
+#### Actions
 
 - `change` -- Action that returns `currentPage` and `previousPage`, e.g.
 
@@ -36,24 +60,6 @@ actions: {
   }
 }
 ```
-
-#### Required
-- `count` -- The number of pages in total, required
-- `current` -- The current page number, required
-
-#### Pagination Only
-- `paginationNext` -- The text to display for pagination next button
-- `paginationPrevious` -- The text to display for pagination previous button
-- `paginationSize` -- The size of the element, default is '', available options include `lg` and `sm`.
-- `countOut` -- The number of page links in the begin and end of whole range
-- `countIn` -- The number of page links on each side of current page
-
-#### Pager Only
-- `pagerNext` -- The text to display for the pager next button
-- `pagerPrevious` -- The text to display for the pager previous button
-- `pagerSpread` -- Pager buttons spaced out, defaults to false
-
-By default the first page is `1`, and the last is the value of `count`, you can change these by setting `firstPage` and `lastPage`.
 
 ## Testing
 
