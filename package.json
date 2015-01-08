@@ -10,7 +10,10 @@
     "build": "ember build",
     "test": "ember test"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:knownasilya/pagination-pager.git"
+  },
   "bugs": {
     "url": "https://github.com/knownasilya/pagination-pager/issues"
   },
