@@ -7,6 +7,15 @@ export default Ember.Component.extend({
   classNameBindings: ['isActive:active'],
   seperator: '…',
 
+  url: computed('urlTemplate', 'page', function () {
+    var urlTemplate = this.get('urlTemplate');
+    var current = this.get('page');
+
+    urlTemplate = urlTemplate.replace('{current}', current);
+
+    return urlTemplate;
+  }),
+
   isActive: computed('page', 'selected', function () {
     return this.get('page') === this.get('selected');
   }),
