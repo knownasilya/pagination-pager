@@ -52,11 +52,11 @@ export default Ember.Component.extend({
   }),
 
   isFirst: computed('firstPage', 'current', function () {
-    return this.get('current') === this.get('firstPage');
+    return this.get('currentPage') === this.get('firstPage');
   }),
 
   isLast: computed('lastPage', 'current', function () {
-    return this.get('current') === this.get('lastPage');
+    return this.get('currentPage') === this.get('lastPage');
   }),
 
   isHidden: computed('hide', 'count', function () {
