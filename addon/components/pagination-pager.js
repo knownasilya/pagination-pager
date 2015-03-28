@@ -134,17 +134,21 @@ export default Ember.Component.extend({
   actions: {
     next: function () {
       if (!this.get('isLast')) {
-        var current = this.get('current');
+        var previous = parseInt(this.get('current'), 10);
+        var current = previous + 1;
 
-        this.set('current', parseInt(current, 10) + 1);
+        this.set('current', current);
+        this.send('pageChanged', current, previous);
       }
     },
 
     previous: function () {
       if (!this.get('isFirst')) {
-        var current = this.get('current');
+        var previous = parseInt(this.get('current'), 10);
+        var current = previous - 1;
 
-        this.set('current', parseInt(current, 10) - 1);
+        this.set('current', current);
+        this.send('pageChanged', current, previous);
       }
     },
 
