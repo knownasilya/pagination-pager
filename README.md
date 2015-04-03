@@ -17,7 +17,7 @@ Here's a [demo][1], and these are the original Bootstrap Components: [Pagination
 
 ## Getting Started
 
-Install via npm, `npm install pagination-pager --save-dev`, then use in your app.
+Install via ember-cli, `ember install:addon pagination-pager`, then use in your app.
 
 ### Available Options
 
