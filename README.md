@@ -1,5 +1,9 @@
-pagination-pager [![Build Status](https://travis-ci.org/knownasilya/pagination-pager.svg)](https://travis-ci.org/knownasilya/pagination-pager)
+pagination-pager
 ================
+
+[![NPM][npm-badge]][npm-badge-url]  
+[![Build Status][travis-badge]][travis-badge-url]
+[![Ember Observer Score][ember-observer-badge]][ember-observer-url]
 
 Ember Component for Bootstrap 3 Pagination &amp; Pager components
 
@@ -68,3 +72,9 @@ actions: {
 [1]: http://knownasilya.github.io/pagination-pager/
 [2]: http://getbootstrap.com/components/#pagination
 [3]: http://getbootstrap.com/components/#pagination-pager
+[npm-badge]: https://nodei.co/npm/pagination-pager.png?downloads=true&stars=true
+[npm-badge-url]: https://nodei.co/npm/pagination-pager/
+[travis-badge]: https://travis-ci.org/knownasilya/pagination-pager.svg
+[travis-badge-url]: https://travis-ci.org/knownasilya/pagination-pager
+[ember-observer-badge]: http://emberobserver.com/badges/pagination-pager.svg
+[ember-observer-url]: http://emberobserver.com/addons/pagination-pager
