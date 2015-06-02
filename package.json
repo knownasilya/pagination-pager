@@ -48,6 +48,7 @@
     "emberjs"
   ],
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "demoURL": "http://knownasilya.github.io/pagination-pager/"
   }
 }
