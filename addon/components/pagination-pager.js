@@ -119,7 +119,7 @@ export default Ember.Component.extend({
       links[i] = i;
     }
 
-    links.forEach(function (content, number) {
+    links.forEach(function (content) {
       result.push(content);
     });
 
