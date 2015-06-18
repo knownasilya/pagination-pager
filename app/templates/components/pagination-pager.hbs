@@ -4,7 +4,7 @@
   </li>
 
   {{#each pages as |page|}}
-    {{page-item page=page selected=current seperator=seperator urlTemplate=urlTemplate pageSet='pageChanged'}}
+    {{page-item page=page selected=this.current seperator=seperator urlTemplate=urlTemplate pageSet='pageChanged'}}
   {{/each}}
 
   <li class="next {{if isLast 'disabled'}}">

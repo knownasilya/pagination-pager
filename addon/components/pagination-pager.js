@@ -137,7 +137,6 @@ export default Ember.Component.extend({
         var previous = parseInt(this.get('current'), 10);
         var current = previous + 1;
 
-        this.set('current', current);
         this.send('pageChanged', current, previous);
       }
     },
@@ -147,12 +146,12 @@ export default Ember.Component.extend({
         var previous = parseInt(this.get('current'), 10);
         var current = previous - 1;
 
-        this.set('current', current);
         this.send('pageChanged', current, previous);
       }
     },
 
     pageChanged: function (page, previous) {
+      this.set('current', page);
       this.sendAction('change', page, previous);
     }
   }
