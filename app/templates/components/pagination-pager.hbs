@@ -3,7 +3,7 @@
     <a {{bind-attr href=previousUrl}} {{action 'previous'}}>{{paginationPrevious}}</a>
   </li>
 
-  {{#each page in pages}}
+  {{#each pages as |page|}}
     {{page-item page=page selected=current seperator=seperator urlTemplate=urlTemplate pageSet='pageChanged'}}
   {{/each}}
 
