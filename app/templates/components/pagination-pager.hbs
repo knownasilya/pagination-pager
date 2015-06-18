@@ -1,21 +1,21 @@
 {{#unless pager}}
-  <li {{bind-attr class=':previous isFirst:disabled'}}>
-    <a {{bind-attr href=previousUrl}} {{action 'previous'}}>{{paginationPrevious}}</a>
+  <li class="previous {{if isFirst 'disabled'}}">
+    <a href="{{previousUrl}}" {{action 'previous'}}>{{paginationPrevious}}</a>
   </li>
 
   {{#each pages as |page|}}
     {{page-item page=page selected=current seperator=seperator urlTemplate=urlTemplate pageSet='pageChanged'}}
   {{/each}}
 
-  <li {{bind-attr class=':next isLast:disabled'}}>
-    <a {{bind-attr href=nextUrl}} {{action 'next'}}>{{paginationNext}}</a>
+  <li class="next {{if isLast 'disabled'}}">
+    <a href="{{nextUrl}}" {{action 'next'}}>{{paginationNext}}</a>
   </li>
 {{else}}
-  <li {{bind-attr class='pagerSpread:previous isFirst:disabled'}}>
-    <a {{bind-attr href=previousUrl}} {{action 'previous'}}>{{pagerPrevious}}</a>
+  <li class="{{if pagerSpread 'previous'}} {{if isFirst 'disabled'}}">
+    <a href="{{previousUrl}}" {{action 'previous'}}>{{pagerPrevious}}</a>
   </li>
 
-  <li {{bind-attr class='pagerSpread:next isLast:disabled'}}>
-    <a {{bind-attr href=nextUrl}} {{action 'next'}}>{{pagerNext}}</a>
+  <li class="{{if pagerSpread 'next'}} {{if isLast 'disabled'}}">
+    <a href="{{nextUrl}}" {{action 'next'}}>{{pagerNext}}</a>
   </li>
 {{/unless}}
