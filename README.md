@@ -15,9 +15,32 @@ Ember Component for Bootstrap 3 Pagination &amp; Pager components
 
 Here's a [demo][1], and these are the original Bootstrap Components: [Pagination][2] and [Pager][3].
 
+<table>
+  <thead>
+    <tr>
+      <th>Plugin Version</th>
+      <th>Ember Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0.x</td>
+      <td>Globals Version, &lt; 1.13</td>
+    </tr>
+    <tr>
+      <td>1.x</td>
+      <td>&lt; 1.13</td>
+    </tr>
+    <tr>
+      <td>2.x</td>
+      <td>1.13</td>
+    </tr>
+  </tbody>
+</table>
+
 ## Getting Started
 
-Install via ember-cli, `ember install:addon pagination-pager`, then use in your app.
+Install via ember-cli, `ember install pagination-pager`, then use in your app.
 
 ### Available Options
 
