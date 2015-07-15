@@ -22,8 +22,13 @@ export default Ember.Component.extend({
 
   previousUrl: computed('urlTemplate', 'current', 'firstPage', function () {
     var urlTemplate = this.get('urlTemplate');
-    var current = this.get('current');
-    var firstPage = this.get('firstPage');
+
+    if (!urlTemplate) {
+      return;
+    }
+
+    let current = this.get('current');
+    let firstPage = this.get('firstPage');
 
     urlTemplate = urlTemplate.replace('{current}', current > firstPage ? current - 1 : current);
 
@@ -32,8 +37,13 @@ export default Ember.Component.extend({
 
   nextUrl: computed('urlTemplate', 'current', 'count', function () {
     var urlTemplate = this.get('urlTemplate');
-    var current = this.get('current');
-    var count = this.get('count');
+
+    if (!urlTemplate) {
+      return;
+    }
+
+    let current = this.get('current');
+    let count = this.get('count');
 
     urlTemplate = urlTemplate.replace('{current}', current < count ? current + 1 : current);
 
