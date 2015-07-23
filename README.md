@@ -40,7 +40,14 @@ Here's a [demo][1], and these are the original Bootstrap Components: [Pagination
 
 ## Getting Started
 
-Install via ember-cli, `ember install pagination-pager`, then use in your app.
+First install the addon.
+
+```sh
+ember install pagination-pager
+```
+
+Then use it in your app with `{{pagination-pager}}` with the options
+in the following section.
 
 ### Available Options
 
@@ -57,6 +64,7 @@ By default the first page is `1`, and the last is the value of `count`, you can 
 - `urlTemplate` -- Url template for supporting opening pages in new windows, defaults to '#'.
   `urlTemplate` should be in the form of `http://myurl.com/#/posts?page={current}`.
 - `hide` -- Hide the component if `count` equals `1`, defaults to `false`
+- `disabled` -- Disable changing the pages, defaults to `false`.
 
 #### Pagination Only
 - `paginationNext` -- The text to display for pagination next button
