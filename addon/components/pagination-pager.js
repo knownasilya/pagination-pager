@@ -55,9 +55,13 @@ export default Ember.Component.extend({
     return this.get('currentPage') === this.get('firstPage');
   }),
 
+  isFirstDisabled: computed.or('disabled', 'isFirst'),
+
   isLast: computed('lastPage', 'current', function () {
     return this.get('currentPage') === this.get('lastPage');
   }),
+
+  isLastDisabled: computed.or('disabled', 'isLast'),
 
   isHidden: computed('hide', 'count', function () {
     if (this.get('hide')) {
