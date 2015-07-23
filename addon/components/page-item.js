@@ -4,7 +4,7 @@ var computed = Ember.computed;
 
 export default Ember.Component.extend({
   tagName: 'li',
-  classNameBindings: ['isActive:active'],
+  classNameBindings: ['isActive:active', 'disabled'],
   seperator: '…',
   selected: null,
 
