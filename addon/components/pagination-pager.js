@@ -65,7 +65,7 @@ export default Ember.Component.extend({
 
   isHidden: computed('hide', 'count', function () {
     if (this.get('hide')) {
-      return (this.get('count') === 1);
+      return (this.get('count') <= 1);
     }
     return false;
   }),
