@@ -70,6 +70,9 @@ export default Ember.Component.extend({
     return false;
   }),
 
+  // Legacy support for {{#if template}}
+  hasBlockShim: computed.or('hasBlock', 'template'),
+
   pages: computed('count', 'current', 'countOut', 'countIn', function () {
     var seperator = this.get('seperator');
     var current = this.get('current');

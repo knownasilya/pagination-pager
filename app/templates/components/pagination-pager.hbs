@@ -15,6 +15,10 @@
     <a href="{{previousUrl}}" {{action 'previous'}}>{{pagerPrevious}}</a>
   </li>
 
+  {{#if hasBlockShim}}
+    <li class="pager-inner">{{yield}}</li>
+  {{/if}}
+
   <li class="{{if pagerSpread 'next'}} {{if isLastDisabled 'disabled'}}">
     <a href="{{nextUrl}}" {{action 'next'}}>{{pagerNext}}</a>
   </li>
