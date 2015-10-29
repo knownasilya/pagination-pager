@@ -28,7 +28,7 @@ Here's a [demo][1], and these are the original Bootstrap Components: [Pagination
       <td>Globals Version, &lt; 1.13</td>
     </tr>
     <tr>
-      <td>1.x</td>
+      <td><a href="https://github.com/knownasilya/pagination-pager/tree/1.2.4">1.x</a></td>
       <td>&lt; 1.13</td>
     </tr>
     <tr>
@@ -116,3 +116,4 @@ actions: {
 [travis-badge-url]: https://travis-ci.org/knownasilya/pagination-pager
 [ember-observer-badge]: http://emberobserver.com/badges/pagination-pager.svg
 [ember-observer-url]: http://emberobserver.com/addons/pagination-pager
+[1x]: https://github.com/knownasilya/pagination-pager/tree/1.2.4
