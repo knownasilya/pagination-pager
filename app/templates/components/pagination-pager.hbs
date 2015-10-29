@@ -15,7 +15,7 @@
     <a href="{{previousUrl}}" {{action 'previous'}}>{{pagerPrevious}}</a>
   </li>
 
-  <li>{{yield}}</li>
+  <li class="pager-inner">{{yield}}</li>
 
   <li class="{{if pagerSpread 'next'}} {{if isLastDisabled 'disabled'}}">
     <a href="{{nextUrl}}" {{action 'next'}}>{{pagerNext}}</a>
