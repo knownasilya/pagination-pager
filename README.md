@@ -20,20 +20,24 @@ Here's a [demo][1], and these are the original Bootstrap Components: [Pagination
     <tr>
       <th>Plugin Version</th>
       <th>Ember Version</th>
+      <th>Branch</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>0.x</td>
       <td>Globals Version, &lt; 1.13</td>
+      <td>NA (deprecated)</td>
     </tr>
     <tr>
-      <td><a href="https://github.com/knownasilya/pagination-pager/tree/1.2.4">1.x</a></td>
+      <td>1.x</td>
       <td>&lt; 1.13</td>
+      <td><a href="https://github.com/knownasilya/pagination-pager/tree/1.2.4">1.2.4</a></td>
     </tr>
     <tr>
       <td>2.x</td>
       <td>1.13</td>
+      <td>master</td>
     </tr>
   </tbody>
 </table>
@@ -116,4 +120,3 @@ actions: {
 [travis-badge-url]: https://travis-ci.org/knownasilya/pagination-pager
 [ember-observer-badge]: http://emberobserver.com/badges/pagination-pager.svg
 [ember-observer-url]: http://emberobserver.com/addons/pagination-pager
-[1x]: https://github.com/knownasilya/pagination-pager/tree/1.2.4
