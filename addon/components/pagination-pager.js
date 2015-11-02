@@ -40,6 +40,26 @@ export default Ember.Component.extend({
     return urlTemplate;
   }),
 
+  firstUrl: computed('urlTemplate', 'current', 'firstPage', function () {
+    var urlTemplate = this.get('urlTemplate');
+    var current = this.get('current');
+    var firstPage = this.get('firstPage');
+
+    urlTemplate = urlTemplate.replace('{current}', firstPage);
+
+    return urlTemplate;
+  }),
+
+  lastUrl: computed('urlTemplate', 'current', 'lastPage', function () {
+    var urlTemplate = this.get('urlTemplate');
+    var current = this.get('current');
+    var lastPage = this.get('lastPage');
+
+    urlTemplate = urlTemplate.replace('{current}', lastPage);
+
+    return urlTemplate;
+  }),
+
   currentPage: computed('current', function () {
     return Number(this.get('current'));
   }),
@@ -152,6 +172,24 @@ export default Ember.Component.extend({
       if (!this.get('isFirst')) {
         var previous = parseInt(this.get('current'), 10);
         var current = previous - 1;
+
+        this.send('pageChanged', current, previous);
+      }
+    },
+
+    first: function () {
+      if (!this.get('isFirst')) {
+        var previous = parseInt(this.get('current'), 10);
+        var current = this.get('firstPage');
+
+        this.send('pageChanged', current, previous);
+      }
+    },
+
+    last: function () {
+      if (!this.get('isLast')) {
+        var previous = parseInt(this.get('current'), 10);
+        var current = this.get('lastPage');
 
         this.send('pageChanged', current, previous);
       }
