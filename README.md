@@ -102,7 +102,7 @@ By default the first page is `1`, and the last is the value of `count`, you can 
 ```js
 actions: {
   // clicking on '2' after '5'
-  pageChanged: function (current, previous) {
+  pageChanged(current, previous) {
     console.log(current, previous);
     // => 2, 5
   }
