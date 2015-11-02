@@ -1,3 +1,31 @@
-html, body {
-  margin: 20px;
+@media (min-width: 768px) {
+  .container {
+      max-width: 730px;
+  }
+}
+
+.example {
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  margin-bottom: 2em;
+}
+
+.example .rendered {
+  padding: 1em;
+}
+
+.example pre {
+  border: none;
+  margin: 0;
+  border-top: 1px solid #e5e5e5;
+  border-radius: 0 0 4px 4px;
+}
+
+.gly-flip-horizontal {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+  -webkit-transform: scale(-1, 1);
+  -moz-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  transform: scale(-1, 1);
 }
