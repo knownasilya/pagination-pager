@@ -113,6 +113,17 @@ actions: {
 
 `ember test` works just fine, plus `ember serve` and then visit 'http://localhost:4200/pagination-pager/' to see the dummy app.
 
+### Building Demo (Github Pages)
+
+Build by checking out the relevant branch, since the test dummy app
+is actually the demo app.
+
+Run the following command:
+
+```no-highlight
+ember github-pages:commit --message <message describing demo release>
+```
+
 [1]: http://knownasilya.github.io/pagination-pager/
 [2]: http://getbootstrap.com/components/#pagination
 [3]: http://getbootstrap.com/components/#pagination-pager
