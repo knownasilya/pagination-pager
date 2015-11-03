@@ -48,6 +48,24 @@
   </div>
 
   <div class="example">
+    <div class="rendered">
+      <div class="form-group">
+        <label>Count</label>
+        {{input type='number' value=dynamicCount class='form-control' placeholder='Count'}}
+      </div>
+      <div class="form-group">
+        <label>Current</label>
+        {{input type='number' value=dynamicCurrent class='form-control' placeholder='Current'}}
+      </div>
+
+      {{pagination-pager count=dynamicCount current=dynamicCurrent}}
+    </div>
+    <pre>&#123;&#123;pagination-pager
+    count=dynamicCount
+    current=dynamicCurrent&#125;&#125;</pre>
+  </div>
+
+  <div class="example">
     <div class="rendered">{{pagination-pager count=50 current=1 change='pageChanged' urlTemplate='localhost:4200/pagination-pager/?page={current}'}}</div>
     <pre>&#123;&#123;pagination-pager
     count=50

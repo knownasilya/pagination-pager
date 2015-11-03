@@ -18,7 +18,11 @@ export default Ember.Component.extend({
   }),
 
   isActive: computed('page', 'selected', function () {
-    return this.get('page') === this.get('selected');
+    try {
+      return this.get('page') === Number(this.get('selected'));
+    } catch(e) {
+      return false;
+    }
   }),
 
   isDots: computed('page', function () {
