@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
   dynamicCurrent: 5,
 
   actions: {
-    pageChanged(direction, page, last) {
+    pageChanged: function (direction, page, last) {
       console.log(direction, page, last);
     }
   }
