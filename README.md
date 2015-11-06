@@ -1,7 +1,7 @@
 pagination-pager
 ================
 
-[![NPM][npm-badge]][npm-badge-url]  
+[![NPM][npm-badge-img]][npm-badge-link]
 [![Build Status][travis-badge]][travis-badge-url]
 [![Ember Observer Score][ember-observer-badge]][ember-observer-url]
 
@@ -125,8 +125,8 @@ ember github-pages:commit --message <message describing demo release>
 [1]: http://knownasilya.github.io/pagination-pager/
 [2]: http://getbootstrap.com/components/#pagination
 [3]: http://getbootstrap.com/components/#pagination-pager
-[npm-badge]: https://nodei.co/npm/pagination-pager.png?downloads=true&stars=true
-[npm-badge-url]: https://nodei.co/npm/pagination-pager/
+[npm-badge-img]: https://badge.fury.io/js/pagination-pager.svg
+[npm-badge-link]: http://badge.fury.io/js/pagination-pager
 [travis-badge]: https://travis-ci.org/knownasilya/pagination-pager.svg
 [travis-badge-url]: https://travis-ci.org/knownasilya/pagination-pager
 [ember-observer-badge]: http://emberobserver.com/badges/pagination-pager.svg
