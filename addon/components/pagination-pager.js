@@ -8,6 +8,7 @@ export default Ember.Component.extend({
   classNameBindings: ['pager:pager:pagination', 'isHidden:hidden', 'paginationSizeClass'],
   pager: false,
   hide: false,
+  autoHide: true,
   pagerNext: 'Next',
   pagerPrevious: 'Previous',
   paginationPrevious: '«',
@@ -81,11 +82,12 @@ export default Ember.Component.extend({
 
   isLastDisabled: computed.or('disabled', 'isLast'),
 
-  isHidden: computed('hide', 'count', function () {
-    if (this.get('hide')) {
-      return (this.get('count') <= 1);
-    }
-    return false;
+  isHidden: computed('hide', 'autoHide', 'count', function () {
+    var autoHide = this.get('autoHide');
+    var count = this.get('count');
+    var hide = this.get('hide');
+
+    return hide || (autoHide && !count || count <= 1);
   }),
 
   // Legacy support for {{#if template}}
