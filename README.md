@@ -65,7 +65,8 @@ By default the first page is `1`, and the last is the value of `count`, you can 
 - `pager` -- Switches to the pager component, defaults to `false`
 - `urlTemplate` -- Url template for supporting opening pages in new windows, defaults to '#'.
   `urlTemplate` should be in the form of `http://myurl.com/#/posts?page={current}`.
-- `hide` -- Hide the component if `count` equals `1`, defaults to `false`
+- `hide` -- Hide the component for any reason, defaults to `false`.
+- `autoHide` -- Hide the component if `count` is <= `1`, defaults to `true`.
 - `disabled` -- Disable changing the pages, defaults to `false`.
 
 #### Pagination Only
