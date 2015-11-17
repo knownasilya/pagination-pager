@@ -15,6 +15,10 @@
     <a {{bind-attr href=previousUrl}} {{action 'previous'}}>{{pagerPrevious}}</a>
   </li>
 
+  {{#if template}}
+    <li class="pager-inner">{{yield}}</li>
+  {{/if}}
+
   <li {{bind-attr class='pagerSpread:next isLast:disabled'}}>
     <a {{bind-attr href=nextUrl}} {{action 'next'}}>{{pagerNext}}</a>
   </li>

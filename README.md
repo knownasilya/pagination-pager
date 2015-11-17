@@ -47,6 +47,13 @@ By default the first page is `1`, and the last is the value of `count`, you can 
 - `pagerPrevious` -- The text to display for the pager previous button
 - `pagerSpread` -- Pager buttons spaced out, defaults to false
 
+```hbs
+{{#pagination-pager pager=true ..}}
+  <!-- This will show up between the two buttons. -->
+  Page {{current}} of {{count}}
+{{/pagination-pager}}
+```
+
 #### Actions
 
 - `change` -- Action that returns `currentPage` and `previousPage`, e.g.
