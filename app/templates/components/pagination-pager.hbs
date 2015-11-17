@@ -11,6 +11,12 @@
     <a {{bind-attr href=nextUrl}} {{action 'next'}}>{{paginationNext}}</a>
   </li>
 {{else}}
+  {{#if pagerFirst}}
+    <li {{bind-attr class='isFirstDisabled:disabled'}}>
+      <a {{bind-attr href=firstUrl}} {{action 'first'}}>{{pagerFirst}}</a>
+    </li>
+  {{/if}}
+
   <li {{bind-attr class='pagerSpread:previous isFirst:disabled'}}>
     <a {{bind-attr href=previousUrl}} {{action 'previous'}}>{{pagerPrevious}}</a>
   </li>
@@ -22,4 +28,10 @@
   <li {{bind-attr class='pagerSpread:next isLast:disabled'}}>
     <a {{bind-attr href=nextUrl}} {{action 'next'}}>{{pagerNext}}</a>
   </li>
+
+  {{#if pagerLast}}
+    <li {{bind-attr class='isLastDisabled:disabled'}}>
+      <a {{bind-attr href=lastUrl}} {{action 'last'}}>{{pagerLast}}</a>
+    </li>
+  {{/if}}
 {{/unless}}

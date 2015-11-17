@@ -45,6 +45,8 @@ By default the first page is `1`, and the last is the value of `count`, you can 
 #### Pager Only
 - `pagerNext` -- The text to display for the pager next button
 - `pagerPrevious` -- The text to display for the pager previous button
+- `pagerFirst` -- The text to display for the pager first button (no button is shown if not specified)
+- `pagerLast` -- The text to display for the pager last button (no button is shown if not specified)
 - `pagerSpread` -- Pager buttons spaced out, defaults to false
 
 ```hbs
