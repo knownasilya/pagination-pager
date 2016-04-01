@@ -71,13 +71,19 @@ export default Ember.Component.extend({
   }),
 
   isFirst: computed('firstPage', 'current', function () {
-    return this.get('currentPage') === this.get('firstPage');
+    var currentPage = parseInt(this.get('currentPage'));
+    var firstPage = parseInt(this.get('firstPage'));
+    
+    return currentPage === firstPage;
   }),
 
   isFirstDisabled: computed.or('disabled', 'isFirst'),
 
   isLast: computed('lastPage', 'current', function () {
-    return this.get('currentPage') === this.get('lastPage');
+    var currentPage = parseInt(this.get('currentPage'));
+    var lastPage = parseInt(this.get('lastPage'));
+    
+    return currentPage === lastPage;
   }),
 
   isLastDisabled: computed.or('disabled', 'isLast'),
