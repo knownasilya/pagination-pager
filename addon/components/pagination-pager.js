@@ -93,7 +93,7 @@ export default Ember.Component.extend({
     var count = this.get('count');
     var hide = this.get('hide');
 
-    return hide || (autoHide && !count || count <= 1);
+    return hide || (autoHide && (!count || count <= 1));
   }),
 
   pages: computed('count', 'current', 'countOut', 'countIn', function () {
