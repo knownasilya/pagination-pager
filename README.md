@@ -84,7 +84,7 @@ By default the first page is `1`, and the last is the value of `count`, you can 
 - `pagerSpread` -- Pager buttons spaced out, defaults to false
 
 ```hbs
-{{#pagination-pager pager=true ..}}
+{{#pagination-pager pager=true count=count current=current}}
   <!-- This will show up between the two buttons. -->
   Page {{current}} of {{count}}
 {{/pagination-pager}}
