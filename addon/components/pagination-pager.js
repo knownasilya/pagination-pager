@@ -156,14 +156,14 @@ export default Ember.Component.extend({
     return result;
   }),
 
-  click: function (event) {
+  click(event) {
     // stop `#` from jumping to top of page
     event.preventDefault();
   },
 
   actions: {
     next() {
-      if (this.disabled) {
+      if (this.get('disabled')) {
         return;
       }
 
@@ -176,7 +176,7 @@ export default Ember.Component.extend({
     },
 
     previous() {
-      if (this.disabled) {
+      if (this.get('disabled')) {
         return;
       }
 
@@ -189,7 +189,7 @@ export default Ember.Component.extend({
     },
 
     first() {
-      if (this.disabled) {
+      if (this.get('disabled')) {
         return;
       }
 
@@ -202,7 +202,7 @@ export default Ember.Component.extend({
     },
 
     last() {
-      if (this.disabled) {
+      if (this.get('disabled')) {
         return;
       }
 

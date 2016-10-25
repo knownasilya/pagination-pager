@@ -34,7 +34,7 @@ export default Ember.Component.extend({
 
   actions: {
     select() {
-      if (this.disabled) {
+      if (this.get('disabled')) {
         return;
       }
 
