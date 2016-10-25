@@ -59,13 +59,19 @@
           Hide
         </label>
       </div>
-      {{pagination-pager count=autoCount current=1 autoHide=true hide=hidden}}
+      <div class="form-group">
+        <label>
+          {{input type='checkbox' checked=autoHide}}
+          Auto Hide
+        </label>
+      </div>
+      {{pagination-pager count=autoCount current=1 autoHide=autoHide hide=hidden}}
     </div>
     <pre>&#123;&#123;pagination-pager
     count=autoCount
     current=1
     hide=hidden
-    autoHide=true&#125;&#125;</pre>
+    autoHide=autoHide&#125;&#125;</pre>
   </div>
 
   <div class="example">
