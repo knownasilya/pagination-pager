@@ -1,6 +1,6 @@
 {
   "name": "pagination-pager",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "directories": {
     "doc": "doc",
     "test": "tests"
