@@ -33,7 +33,11 @@ export default Ember.Component.extend({
   }),
 
   actions: {
-    select: function () {
+    select() {
+      if (this.disabled) {
+        return;
+      }
+
       var last = this.get('selected');
       var page = this.get('page');
 

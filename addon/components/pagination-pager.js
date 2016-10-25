@@ -73,7 +73,7 @@ export default Ember.Component.extend({
   isFirst: computed('firstPage', 'current', function () {
     var currentPage = parseInt(this.get('currentPage'));
     var firstPage = parseInt(this.get('firstPage'));
-    
+
     return currentPage === firstPage;
   }),
 
@@ -82,7 +82,7 @@ export default Ember.Component.extend({
   isLast: computed('lastPage', 'current', function () {
     var currentPage = parseInt(this.get('currentPage'));
     var lastPage = parseInt(this.get('lastPage'));
-    
+
     return currentPage === lastPage;
   }),
 
@@ -162,7 +162,11 @@ export default Ember.Component.extend({
   },
 
   actions: {
-    next: function () {
+    next() {
+      if (this.disabled) {
+        return;
+      }
+
       if (!this.get('isLast')) {
         var previous = parseInt(this.get('current'), 10);
         var current = previous + 1;
@@ -171,7 +175,11 @@ export default Ember.Component.extend({
       }
     },
 
-    previous: function () {
+    previous() {
+      if (this.disabled) {
+        return;
+      }
+
       if (!this.get('isFirst')) {
         var previous = parseInt(this.get('current'), 10);
         var current = previous - 1;
@@ -180,7 +188,11 @@ export default Ember.Component.extend({
       }
     },
 
-    first: function () {
+    first() {
+      if (this.disabled) {
+        return;
+      }
+
       if (!this.get('isFirst')) {
         var previous = parseInt(this.get('current'), 10);
         var current = this.get('firstPage');
@@ -189,7 +201,11 @@ export default Ember.Component.extend({
       }
     },
 
-    last: function () {
+    last() {
+      if (this.disabled) {
+        return;
+      }
+
       if (!this.get('isLast')) {
         var previous = parseInt(this.get('current'), 10);
         var current = this.get('lastPage');
@@ -198,7 +214,7 @@ export default Ember.Component.extend({
       }
     },
 
-    pageChanged: function (page, previous) {
+    pageChanged(page, previous) {
       this.set('current', page);
       this.sendAction('change', page, previous);
     }
