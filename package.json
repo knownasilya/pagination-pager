@@ -23,6 +23,9 @@
   },
   "author": "Ilya Radchenko <ilya@burstcreations.com>",
   "license": "MIT",
+  "dependencies": {
+    "ember-cli-babel": "^5.1.7"
+  },
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.2",
     "broccoli-merge-trees": "^0.2.4",
