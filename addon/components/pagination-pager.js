@@ -5,7 +5,7 @@ var alias = computed.alias;
 
 export default Ember.Component.extend({
   tagName: 'nav',
-  classNameBindings: ['pager:pager:pagination', 'isHidden:hidden', 'paginationSizeClass'],
+  classNameBindings: ['pager:pager', 'isHidden:hidden', 'paginationSizeClass'],
   attributeBindings: ['ariaLabel'],
   ariaLabel: 'Page navigation',
   pager: false,
