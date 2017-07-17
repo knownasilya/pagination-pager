@@ -217,8 +217,11 @@ export default Ember.Component.extend({
     },
 
     pageChanged(page, previous) {
-      this.set('current', page);
-      this.sendAction('change', page, previous);
+      if (this.get('change')) {
+        this.sendAction('change', page, previous);
+      } else {
+        this.set('current', page);
+      }
     }
   }
 });

@@ -95,7 +95,7 @@ By default the first page is `1`, and the last is the value of `count`, you can 
 - `change` -- Action that returns `currentPage` and `previousPage`, e.g.
 
 ```hbs
-{{pagination-pager count=count current=current change='pageChanged'}}
+{{pagination-pager count=count current=current change=(action 'pageChanged')}}
 ```
 
 ```js
@@ -107,6 +107,8 @@ actions: {
   }
 }
 ```
+
+> **Note:** If `changed` is defined, then `current` isn't updated automatically, it's your job to update it.
 
 ## Testing
 
