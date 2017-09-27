@@ -21,6 +21,7 @@ export default Ember.Component.extend({
   firstPage: 1,
   current: 1,
   urlTemplate: '#',
+  baseUrlTemplate: null,
   lastPage: alias('count'),
 
   previousUrl: computed('urlTemplate', 'current', 'firstPage', function () {
