@@ -21,17 +21,17 @@ export default Ember.Component.extend({
   firstPage: 1,
   current: 1,
   urlTemplate: '#',
-  baseUrlTemplate: null,
+  firstPageUrlTemplate: null,
   lastPage: alias('count'),
 
   previousUrl: computed('urlTemplate', 'current', 'firstPage', function () {
     var urlTemplate = this.get('urlTemplate');
     var current = this.get('current');
     var firstPage = this.get('firstPage');
-    var baseUrlTemplate = this.get('baseUrlTemplate');
+    var firstPageUrlTemplate = this.get('firstPageUrlTemplate');
 
-    if(baseUrlTemplate && (((current - 1) === firstPage) || current === firstPage)) {
-      return baseUrlTemplate;
+    if(firstPageUrlTemplate && (((current - 1) === firstPage) || current === firstPage)) {
+      return firstPageUrlTemplate;
     }
 
     urlTemplate = urlTemplate.replace('{current}', current > firstPage ? current - 1 : current);
