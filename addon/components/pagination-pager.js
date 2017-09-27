@@ -28,6 +28,11 @@ export default Ember.Component.extend({
     var urlTemplate = this.get('urlTemplate');
     var current = this.get('current');
     var firstPage = this.get('firstPage');
+    var baseUrlTemplate = this.get('baseUrlTemplate');
+
+    if(baseUrlTemplate && (((current - 1) === firstPage) || current === firstPage)) {
+      return baseUrlTemplate;
+    }
 
     urlTemplate = urlTemplate.replace('{current}', current > firstPage ? current - 1 : current);
 
