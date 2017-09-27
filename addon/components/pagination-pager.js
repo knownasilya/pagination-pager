@@ -52,6 +52,11 @@ export default Ember.Component.extend({
   firstUrl: computed('urlTemplate', 'current', 'firstPage', function () {
     var urlTemplate = this.get('urlTemplate');
     var firstPage = this.get('firstPage');
+    var firstPageUrlTemplate = this.get('firstPageUrlTemplate');
+
+    if(firstPageUrlTemplate) {
+      return firstPageUrlTemplate;
+    }
 
     urlTemplate = urlTemplate.replace('{current}', firstPage);
 
