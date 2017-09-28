@@ -5,7 +5,16 @@
     </li>
 
     {{#each pages key="@index" as |page|}}
-      {{page-item disabled=disabled page=page selected=this.current seperator=seperator urlTemplate=urlTemplate pageSet='pageChanged'}}
+      {{page-item
+        disabled=disabled
+        page=page
+        selected=this.current
+        seperator=seperator
+        urlTemplate=urlTemplate
+        firstPage=firstPage
+        firstPageUrlTemplate=firstPageUrlTemplate
+        pageSet='pageChanged'
+      }}
     {{/each}}
 
     <li class="next {{if isLastDisabled 'disabled'}}">
