@@ -8,7 +8,8 @@
   "scripts": {
     "start": "ember server",
     "build": "ember build",
-    "test": "ember test"
+    "test": "ember test",
+    "release": "standard-version"
   },
   "repository": {
     "type": "git",
@@ -41,7 +42,8 @@
     "ember-cli-uglify": "^1.0.1",
     "ember-disable-prototype-extensions": "^1.0.0",
     "ember-disable-proxy-controllers": "^1.0.0",
-    "ember-export-application-global": "^1.0.2"
+    "ember-export-application-global": "^1.0.2",
+    "standard-version": "^4.0.0"
   },
   "description": "{{pagination-pager}} - Ember.js Component for Bootstrap 3 pagination & pager components",
   "keywords": [
