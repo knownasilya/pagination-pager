@@ -1,12 +1,8 @@
-import resolver from './helpers/resolver';
-import {
-  setResolver
-} from 'ember-qunit';
+import Application from '../app';
+import config from '../config/environment';
+import { setApplication } from '@ember/test-helpers';
+import { start } from 'ember-qunit';
 
-setResolver(resolver);
+setApplication(Application.create(config.APP));
 
-document.write('<div id="ember-testing-container"><div id="ember-testing"></div></div>');
-
-QUnit.config.urlConfig.push({ id: 'nocontainer', label: 'Hide container'});
-var containerVisibility = QUnit.urlParams.nocontainer ? 'hidden' : 'visible';
-document.getElementById('ember-testing-container').style.visibility = containerVisibility;
+start();
