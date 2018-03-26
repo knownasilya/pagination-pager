@@ -16,11 +16,11 @@ module.exports = function(defaults) {
     behave. You most likely want to be modifying `./index.js` or app's build file
   */
 
-  app.import('bower_components/bootstrap/dist/css/bootstrap.css');
+  app.import('node_modules/bootstrap/dist/css/bootstrap.css');
   //app.import('bower_components/bootstrap/dist/js/bootstrap.js');
  
   // Copy glyphicon fonts
-  let fonts = pickFiles('bower_components/bootstrap/dist/fonts', {
+  let fonts = pickFiles('node_modules/bootstrap/dist/fonts', {
     srcDir: '/',
     files: ['**/*'],
     destDir: '/fonts'
