@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.2.1"></a>
+## [3.2.1](https://github.com/knownasilya/pagination-pager/compare/v3.2.0...v3.2.1) (2018-03-26)
+
+
+### Bug Fixes
+
+* add missing ember-try dep ([2d0e289](https://github.com/knownasilya/pagination-pager/commit/2d0e289))
+
+
+
 <a name="3.2.0"></a>
 # [3.2.0](https://github.com/knownasilya/pagination-pager/compare/v3.1.0...v3.2.0) (2018-03-26)
 
