@@ -29,7 +29,7 @@ export default Component.extend({
     let firstPage = this.get('firstPage');
     let firstPageUrlTemplate = this.get('firstPageUrlTemplate');
 
-    if(firstPageUrlTemplate && (((current - 1) === firstPage) || current === firstPage)) {
+    if (firstPageUrlTemplate && (((current - 1) === firstPage) || current === firstPage)) {
       return firstPageUrlTemplate;
     }
 
@@ -53,7 +53,7 @@ export default Component.extend({
     let firstPage = this.get('firstPage');
     let firstPageUrlTemplate = this.get('firstPageUrlTemplate');
 
-    if(firstPageUrlTemplate) {
+    if (firstPageUrlTemplate) {
       return firstPageUrlTemplate;
     }
 
