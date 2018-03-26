@@ -4,7 +4,7 @@ import { computed } from '@ember/object';
 
 export default Component.extend({
   tagName: 'nav',
-  classNameBindings: ['pager:pager', 'isHidden:hidden', 'paginationSizeClass'],
+  classNameBindings: ['isHidden:hidden'],
   attributeBindings: ['ariaLabel'],
   ariaLabel: 'Page navigation',
   pager: false,
@@ -24,10 +24,10 @@ export default Component.extend({
   lastPage: alias('count'),
 
   previousUrl: computed('urlTemplate', 'current', 'firstPage', function () {
-    var urlTemplate = this.get('urlTemplate');
-    var current = this.get('current');
-    var firstPage = this.get('firstPage');
-    var firstPageUrlTemplate = this.get('firstPageUrlTemplate');
+    let urlTemplate = this.get('urlTemplate');
+    let current = this.get('current');
+    let firstPage = this.get('firstPage');
+    let firstPageUrlTemplate = this.get('firstPageUrlTemplate');
 
     if(firstPageUrlTemplate && (((current - 1) === firstPage) || current === firstPage)) {
       return firstPageUrlTemplate;
@@ -39,9 +39,9 @@ export default Component.extend({
   }),
 
   nextUrl: computed('urlTemplate', 'current', 'count', function () {
-    var urlTemplate = this.get('urlTemplate');
-    var current = this.get('current');
-    var count = this.get('count');
+    let urlTemplate = this.get('urlTemplate');
+    let current = this.get('current');
+    let count = this.get('count');
 
     urlTemplate = urlTemplate.replace('{current}', current < count ? current + 1 : current);
 
@@ -49,9 +49,9 @@ export default Component.extend({
   }),
 
   firstUrl: computed('urlTemplate', 'current', 'firstPage', function () {
-    var urlTemplate = this.get('urlTemplate');
-    var firstPage = this.get('firstPage');
-    var firstPageUrlTemplate = this.get('firstPageUrlTemplate');
+    let urlTemplate = this.get('urlTemplate');
+    let firstPage = this.get('firstPage');
+    let firstPageUrlTemplate = this.get('firstPageUrlTemplate');
 
     if(firstPageUrlTemplate) {
       return firstPageUrlTemplate;
@@ -63,8 +63,8 @@ export default Component.extend({
   }),
 
   lastUrl: computed('urlTemplate', 'current', 'lastPage', function () {
-    var urlTemplate = this.get('urlTemplate');
-    var lastPage = this.get('lastPage');
+    let urlTemplate = this.get('urlTemplate');
+    let lastPage = this.get('lastPage');
 
     urlTemplate = urlTemplate.replace('{current}', lastPage);
 
@@ -76,15 +76,15 @@ export default Component.extend({
   }),
 
   paginationSizeClass: computed('paginationSize', function () {
-    var size = this.get('size');
-    var pager = this.get('pager');
+    let size = this.get('size');
+    let pager = this.get('pager');
 
     return !pager && size && (size === 'lg' || size === 'sm') ? 'pagination-' + size : '';
   }),
 
   isFirst: computed('firstPage', 'current', function () {
-    var currentPage = parseInt(this.get('currentPage'));
-    var firstPage = parseInt(this.get('firstPage'));
+    let currentPage = parseInt(this.get('currentPage'));
+    let firstPage = parseInt(this.get('firstPage'));
 
     return currentPage === firstPage;
   }),
@@ -92,8 +92,8 @@ export default Component.extend({
   isFirstDisabled: or('disabled', 'isFirst'),
 
   isLast: computed('lastPage', 'current', function () {
-    var currentPage = parseInt(this.get('currentPage'));
-    var lastPage = parseInt(this.get('lastPage'));
+    let currentPage = parseInt(this.get('currentPage'));
+    let lastPage = parseInt(this.get('lastPage'));
 
     return currentPage === lastPage;
   }),
@@ -101,47 +101,47 @@ export default Component.extend({
   isLastDisabled: or('disabled', 'isLast'),
 
   isHidden: computed('hide', 'autoHide', 'count', function () {
-    var autoHide = this.get('autoHide');
-    var count = this.get('count');
-    var hide = this.get('hide');
+    let autoHide = this.get('autoHide');
+    let count = this.get('count');
+    let hide = this.get('hide');
 
     return hide || (autoHide && (!count || count <= 1));
   }),
 
   pages: computed('count', 'current', 'countOut', 'countIn', function () {
-    var seperator = this.get('seperator');
-    var current = this.get('current');
-    var count = this.get('count');
-    var countOut = this.get('countOut');
-    var countIn = this.get('countIn');
-    var result = [];
-    var i;
+    let seperator = this.get('seperator');
+    let current = this.get('current');
+    let count = this.get('count');
+    let countOut = this.get('countOut');
+    let countIn = this.get('countIn');
+    let result = [];
+    let i;
 
     // Beginning group of pages: n1...n2
-    var n1 = 1;
-    var n2 = Math.min(countOut, count);
+    let n1 = 1;
+    let n2 = Math.min(countOut, count);
 
     // Ending group of pages: n7...n8
-    var n7 = Math.max(1, (count - countOut + 1));
-    var n8 = count;
+    let n7 = Math.max(1, (count - countOut + 1));
+    let n8 = count;
 
     // Middle group of pages: n4...n5
-    var n4 = Math.max(n2 + 1, current - countIn);
-    var n5 = Math.min(n7 - 1, current + countIn);
-    var useMiddle = (n5 >= n4);
+    let n4 = Math.max(n2 + 1, current - countIn);
+    let n5 = Math.min(n7 - 1, current + countIn);
+    let useMiddle = (n5 >= n4);
 
     // Point n3 between n2 and n4
-    var n3 = Math.floor((n2 + n4) / 2);
-    var useN3 = (useMiddle && ((n4 - n2) > 1));
+    let n3 = Math.floor((n2 + n4) / 2);
+    let useN3 = (useMiddle && ((n4 - n2) > 1));
 
     // Point $n6 between $n5 and $n7
-    var n6 = Math.floor((n5 + n7) / 2);
-    var useN6 = (useMiddle && ((n7 - n5) > 1));
+    let n6 = Math.floor((n5 + n7) / 2);
+    let useN6 = (useMiddle && ((n7 - n5) > 1));
 
-    var links = [];
+    let links = [];
 
     // Generate links data in accordance with calculated numbers
-    for (var n = n1; n <= n2; n++) {
+    for (let n = n1; n <= n2; n++) {
       links[n] = n;
     }
 
@@ -180,8 +180,8 @@ export default Component.extend({
       }
 
       if (!this.get('isLast')) {
-        var previous = parseInt(this.get('current'), 10);
-        var current = previous + 1;
+        let previous = parseInt(this.get('current'), 10);
+        let current = previous + 1;
 
         this.send('pageChanged', current, previous);
       }
@@ -193,8 +193,8 @@ export default Component.extend({
       }
 
       if (!this.get('isFirst')) {
-        var previous = parseInt(this.get('current'), 10);
-        var current = previous - 1;
+        let previous = parseInt(this.get('current'), 10);
+        let current = previous - 1;
 
         this.send('pageChanged', current, previous);
       }
@@ -206,8 +206,8 @@ export default Component.extend({
       }
 
       if (!this.get('isFirst')) {
-        var previous = parseInt(this.get('current'), 10);
-        var current = this.get('firstPage');
+        let previous = parseInt(this.get('current'), 10);
+        let current = this.get('firstPage');
 
         this.send('pageChanged', current, previous);
       }
@@ -219,8 +219,8 @@ export default Component.extend({
       }
 
       if (!this.get('isLast')) {
-        var previous = parseInt(this.get('current'), 10);
-        var current = this.get('lastPage');
+        let previous = parseInt(this.get('current'), 10);
+        let current = this.get('lastPage');
 
         this.send('pageChanged', current, previous);
       }
@@ -228,7 +228,7 @@ export default Component.extend({
 
     pageChanged(page, previous) {
       if (this.get('change')) {
-        this.sendAction('change', page, previous);
+        this.get('change')(page, previous);
       } else {
         this.set('current', page);
       }

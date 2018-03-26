@@ -1,7 +1,6 @@
 import { run } from '@ember/runloop';
 import { merge } from '@ember/polyfills';
 import Application from '../../app';
-import Router from '../../router';
 import config from '../../config/environment';
 
 export default function startApp(attrs) {

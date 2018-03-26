@@ -9,6 +9,7 @@ export default Controller.extend({
 
   actions: {
     pageChanged: function (direction, page, last) {
+      // eslint-disable-next-line no-console
       console.log(direction, page, last);
     }
   }
