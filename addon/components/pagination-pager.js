@@ -1,9 +1,8 @@
-import Ember from 'ember';
+import { alias, or } from '@ember/object/computed';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
 
-var computed = Ember.computed;
-var alias = computed.alias;
-
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: 'nav',
   classNameBindings: ['pager:pager', 'isHidden:hidden', 'paginationSizeClass'],
   attributeBindings: ['ariaLabel'],
@@ -90,7 +89,7 @@ export default Ember.Component.extend({
     return currentPage === firstPage;
   }),
 
-  isFirstDisabled: computed.or('disabled', 'isFirst'),
+  isFirstDisabled: or('disabled', 'isFirst'),
 
   isLast: computed('lastPage', 'current', function () {
     var currentPage = parseInt(this.get('currentPage'));
@@ -99,7 +98,7 @@ export default Ember.Component.extend({
     return currentPage === lastPage;
   }),
 
-  isLastDisabled: computed.or('disabled', 'isLast'),
+  isLastDisabled: or('disabled', 'isLast'),
 
   isHidden: computed('hide', 'autoHide', 'count', function () {
     var autoHide = this.get('autoHide');

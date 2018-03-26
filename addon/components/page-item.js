@@ -1,8 +1,7 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
 
-var computed = Ember.computed;
-
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: 'li',
   classNameBindings: ['isActive:active', 'disabled'],
   seperator: '…',
