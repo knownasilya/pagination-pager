@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.2.2"></a>
+## [3.2.2](https://github.com/knownasilya/pagination-pager/compare/v3.2.1...v3.2.2) (2018-04-02)
+
+
+### Bug Fixes
+
+* page-item wasn't toggling properly due to closue action change previously ([9fea9da](https://github.com/knownasilya/pagination-pager/commit/9fea9da))
+
+
+
 <a name="3.2.1"></a>
 ## [3.2.1](https://github.com/knownasilya/pagination-pager/compare/v3.2.0...v3.2.1) (2018-03-26)
 
