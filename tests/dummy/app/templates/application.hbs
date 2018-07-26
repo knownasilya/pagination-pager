@@ -93,10 +93,10 @@
   </div>
 
   <div class="example">
-    <div class="rendered">{{pagination-pager count=50 current=1 change=(action 'pageChanged') urlTemplate='localhost:4200/pagination-pager/?page={current}'}}</div>
+    <div class="rendered">{{pagination-pager count=dynamicCount current=dynamicCurrent change=(action 'pageChanged') urlTemplate='localhost:4200/pagination-pager/?page={current}'}}</div>
     <pre>&#123;&#123;pagination-pager
-    count=50
-    current=1
+    count=dynamicCount
+    current=dynamicCurrent
     change=(action 'pageChanged')
     urlTemplate='localhost:4200/pagination-pager/?page={current}'&#125;&#125;</pre>
   </div>

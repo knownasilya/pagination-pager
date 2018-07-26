@@ -8,9 +8,10 @@ export default Controller.extend({
   autoHide: true,
 
   actions: {
-    pageChanged: function (direction, page, last) {
+    pageChanged(current, last) {
+      this.set('dynamicCurrent', current);
       // eslint-disable-next-line no-console
-      console.log(direction, page, last);
+      console.log(current, last);
     }
   }
 });
