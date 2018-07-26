@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.2.4"></a>
+## [3.2.4](https://github.com/knownasilya/pagination-pager/compare/v3.2.3...v3.2.4) (2018-07-26)
+
+
+### Bug Fixes
+
+* **dummy:** fix action example not updating ([b7cc8b2](https://github.com/knownasilya/pagination-pager/commit/b7cc8b2))
+
+
+
 <a name="3.2.3"></a>
 ## [3.2.3](https://github.com/knownasilya/pagination-pager/compare/v3.2.2...v3.2.3) (2018-07-26)
 
