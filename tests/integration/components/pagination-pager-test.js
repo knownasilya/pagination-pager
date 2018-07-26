@@ -12,7 +12,7 @@ module('Integration | Component | pagination-pager', function(hooks) {
     assert.ok(this.element.textContent.includes('«'));
   });
 
-  test('it renders', async function(assert) {
+  test('it fires change action', async function(assert) {
     assert.expect(2);
 
     this.setProperties({
