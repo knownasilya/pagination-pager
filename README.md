@@ -112,8 +112,6 @@ is actually the demo app.
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
-> > > > > > > 50b9101... v3.3.0...v3.20.0
-
 ```no-highlight
 ember github-pages:commit --message <message describing demo release>
 ```
