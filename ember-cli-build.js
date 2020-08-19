@@ -2,9 +2,9 @@
 
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 const mergeTrees = require('broccoli-merge-trees');
-const pickFiles = require('broccoli-static-compiler');
+const funnel = require('broccoli-funnel');
 
-module.exports = function(defaults) {
+module.exports = function (defaults) {
   let app = new EmberAddon(defaults, {
     // Add options here
   });
@@ -18,13 +18,12 @@ module.exports = function(defaults) {
 
   app.import('node_modules/bootstrap/dist/css/bootstrap.css');
   //app.import('bower_components/bootstrap/dist/js/bootstrap.js');
- 
+
   // Copy glyphicon fonts
-  let fonts = pickFiles('node_modules/bootstrap/dist/fonts', {
+  let fonts = funnel('node_modules/bootstrap/dist/fonts', {
     srcDir: '/',
-    files: ['**/*'],
-    destDir: '/fonts'
+    destDir: '/fonts',
   });
 
-  return mergeTrees([app.toTree(), fonts])
+  return mergeTrees([app.toTree(), fonts]);
 };
