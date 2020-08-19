@@ -51,21 +51,21 @@
     <div class="rendered">
       <div class="form-group">
         <label>Count</label>
-        <Input @type="number" @value={{autoCount}} class="form-control" placeholder="Count" />
+        <Input @type="number" @value={{this.autoCount}} class="form-control" placeholder="Count" />
       </div>
       <div class="form-group">
         <label>
-          <Input @type="checkbox" @checked={{hidden}} />
+          <Input @type="checkbox" @checked={{this.hidden}} />
           Hide
         </label>
       </div>
       <div class="form-group">
         <label>
-          <Input @type="checkbox" @checked={{autoHide}} />
+          <Input @type="checkbox" @checked={{this.autoHide}} />
           Auto Hide
         </label>
       </div>
-      <PaginationPager @count={{autoCount}} @current={{1}} @autoHide={{autoHide}} @hide={{hidden}} />
+      <PaginationPager @count={{this.autoCount}} @current={{1}} @autoHide={{this.autoHide}} @hide={{this.hidden}} />
     </div>
     <pre>&#123;&#123;pagination-pager
     count=autoCount
@@ -78,14 +78,14 @@
     <div class="rendered">
       <div class="form-group">
         <label>Count</label>
-        <Input @type="number" @value={{dynamicCount}} class="form-control" placeholder="Count" />
+        <Input @type="number" @value={{this.dynamicCount}} class="form-control" placeholder="Count" />
       </div>
       <div class="form-group">
         <label>Current</label>
-        <Input @type="number" @value={{dynamicCurrent}} class="form-control" placeholder="Current" />
+        <Input @type="number" @value={{this.dynamicCurrent}} class="form-control" placeholder="Current" />
       </div>
 
-      <PaginationPager @count={{dynamicCount}} @current={{dynamicCurrent}} />
+      <PaginationPager @count={{this.dynamicCount}} @current={{this.dynamicCurrent}} />
     </div>
     <pre>&#123;&#123;pagination-pager
     count=dynamicCount
@@ -93,7 +93,7 @@
   </div>
 
   <div class="example">
-    <div class="rendered"><PaginationPager @count={{dynamicCount}} @current={{dynamicCurrent}} @change={{action "pageChanged"}} @urlTemplate="localhost:4200/pagination-pager/?page={current}" /></div>
+    <div class="rendered"><PaginationPager @count={{this.dynamicCount}} @current={{this.dynamicCurrent}} @change={{action "pageChanged"}} @urlTemplate="localhost:4200/pagination-pager/?page={current}" /></div>
     <pre>&#123;&#123;pagination-pager
     count=dynamicCount
     current=dynamicCurrent
@@ -162,14 +162,14 @@
   </div>
 
   <div class="example">
-    <div class="rendered"><PaginationPager @count={{5}} @current={{current}} @pager={{true}}> Page {{current}} of 5 </PaginationPager></div>
+    <div class="rendered"><PaginationPager @count={{5}} @current={{this.current}} @pager={{true}}> Page {{this.current}} of 5 </PaginationPager></div>
     <pre>&#123;&#123;#pagination-pager count=5 current=2 pager=true&#125;&#125;
     Page &#123;&#123;current&#125;&#125; of 5
 &#123;&#123;/pagination-pager&#125;&#125;</pre>
   </div>
 
   <div class="example">
-    <div class="rendered"><PaginationPager @count={{5}} @current={{current}} @pager={{true}} @pagerPrevious="<span class='glyphicon glyphicon-play gly-flip-horizontal'></span>" @pagerNext="<span class='glyphicon glyphicon-play'></span>" @pagerFirst="<span class='glyphicon glyphicon-step-backward'></span>" @pagerLast="<span class='glyphicon glyphicon-step-forward'></span>"> Page {{current}} of 5 </PaginationPager></div>
+    <div class="rendered"><PaginationPager @count={{5}} @current={{this.current}} @pager={{true}} @pagerPrevious="<span class='glyphicon glyphicon-play gly-flip-horizontal'></span>" @pagerNext="<span class='glyphicon glyphicon-play'></span>" @pagerFirst="<span class='glyphicon glyphicon-step-backward'></span>" @pagerLast="<span class='glyphicon glyphicon-step-forward'></span>"> Page {{current}} of 5 </PaginationPager></div>
     <pre>&#123;&#123;#pagination-pager
       count=5
       current=current
