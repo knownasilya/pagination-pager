@@ -17,7 +17,7 @@ module.exports = function (defaults) {
   */
 
   app.import('node_modules/bootstrap/dist/css/bootstrap.css');
-  //app.import('bower_components/bootstrap/dist/js/bootstrap.js');
+  //app.import('node_modules/bootstrap/dist/js/bootstrap.js');
 
   // Copy glyphicon fonts
   let fonts = funnel('node_modules/bootstrap/dist/fonts', {
