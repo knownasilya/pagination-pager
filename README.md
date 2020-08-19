@@ -1,5 +1,4 @@
-pagination-pager
-================
+# pagination-pager
 
 [![NPM][npm-badge-img]][npm-badge-link]
 [![Build Status][travis-badge]][travis-badge-url]
@@ -40,6 +39,12 @@ Here's a [demo][1], and these are the original Bootstrap Components: [Pagination
   </tbody>
 </table>
 
+## Compatibility
+
+- Ember.js v3.12 or above
+- Ember CLI v2.13 or above
+- Node.js v10 or above
+
 ## Getting Started
 
 First install the addon.
@@ -58,10 +63,12 @@ To switch to the pager UI, set the `pager` attribute to `true`, see the optional
 By default the first page is `1`, and the last is the value of `count`, you can change these by setting `firstPage` and `lastPage`.
 
 #### Required
+
 - `count` -- The number of pages in total, required
 - `current` -- The current page number, required
 
 #### Optional
+
 - `pager` -- Switches to the pager component, defaults to `false`
 - `urlTemplate` -- Url template for supporting opening pages in new windows, defaults to '#'.
   `urlTemplate` should be in the form of `http://myurl.com/#/posts?page={current}`.
@@ -70,6 +77,7 @@ By default the first page is `1`, and the last is the value of `count`, you can 
 - `disabled` -- Disable changing the pages, defaults to `false`.
 
 #### Pagination Only
+
 - `paginationNext` -- The text to display for pagination next button
 - `paginationPrevious` -- The text to display for pagination previous button
 - `paginationSize` -- The size of the element, default is '', available options include `lg` and `sm`.
@@ -77,6 +85,7 @@ By default the first page is `1`, and the last is the value of `count`, you can 
 - `countIn` -- The number of page links on each side of current page
 
 #### Pager Only
+
 - `pagerNext` -- The text to display for the pager next button
 - `pagerPrevious` -- The text to display for the pager previous button
 - `pagerFirst` -- The text to display for the pager first button (no button is shown if not specified)
@@ -119,7 +128,11 @@ actions: {
 Build by checking out the relevant branch, since the test dummy app
 is actually the demo app.
 
-Run the following command:
+# Run the following command:
+
+See the [Contributing](CONTRIBUTING.md) guide for details.
+
+> > > > > > > 50b9101... v3.3.0...v3.20.0
 
 ```no-highlight
 ember github-pages:commit --message <message describing demo release>
