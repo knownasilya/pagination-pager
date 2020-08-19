@@ -8,12 +8,12 @@ export default Component.extend({
   selected: null,
 
   url: computed('urlTemplate', 'page', function () {
-    let urlTemplate = this.get('urlTemplate');
-    let current = this.get('page');
-    let firstPage = this.get('firstPage');
-    let firstPageUrlTemplate = this.get('firstPageUrlTemplate');
+    let urlTemplate = this.urlTemplate;
+    let current = this.page;
+    let firstPage = this.firstPage;
+    let firstPageUrlTemplate = this.firstPageUrlTemplate;
 
-    if (firstPageUrlTemplate && (current === firstPage)) {
+    if (firstPageUrlTemplate && current === firstPage) {
       return firstPageUrlTemplate;
     }
 
@@ -24,31 +24,31 @@ export default Component.extend({
 
   isActive: computed('page', 'selected', function () {
     try {
-      return this.get('page') === Number(this.get('selected'));
-    } catch(e) {
+      return this.page === Number(this.selected);
+    } catch (e) {
       return false;
     }
   }),
 
   isDots: computed('page', function () {
-    let seperator = this.get('seperator');
-    let page = this.get('page');
+    let seperator = this.seperator;
+    let page = this.page;
 
     return page === seperator;
   }),
 
   actions: {
     select() {
-      if (this.get('disabled')) {
+      if (this.disabled) {
         return;
       }
 
-      let last = this.get('selected');
-      let page = this.get('page');
+      let last = this.selected;
+      let page = this.page;
 
       if (page !== last) {
-        this.get('pageSet')(page, last);
+        this.pageSet(page, last);
       }
-    }
-  }
+    },
+  },
 });

@@ -9,7 +9,7 @@ export default function startApp(attrs) {
   var attributes = merge({}, config.APP);
   attributes = merge(attributes, attrs); // use defaults, but you can override;
 
-  run(function() {
+  run(function () {
     App = Application.create(attributes);
     App.setupForTesting();
     App.injectTestHelpers();
