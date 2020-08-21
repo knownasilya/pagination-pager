@@ -16,35 +16,39 @@
 
   <div class="example">
     <div class="rendered"><PaginationPager @count={{5}} @current={{2}} @pager={{true}} @pagerNext="New" @pagerPrevious="Old" /></div>
-    <pre>&#123;&#123;pagination-pager
-    count=5
-    current=2
-    pager=true
-    pagerNext='New'
-    pagerPrevious='Old'&#125;&#125;</pre>
+    <pre>&lt;PaginationPager
+    @count=&#123;&#123;5&#125;&#125;
+    @current=&#123;&#123;2&#125;&#125;
+    @pager=&#123;&#123;true&#125;&#125;
+    @pagerNext='New'
+    @pagerPrevious='Old'
+/&gt;</pre>
   </div>
 
   <div class="example">
     <div class="rendered"><PaginationPager @count={{5}} @current={{1}} @pager={{true}} @pagerSpread={{true}} /></div>
-    <pre>&#123;&#123;pagination-pager
-    count=5
-    current=1
-    pager=true
-    pagerSpread=true&#125;&#125;</pre>
+    <pre>&lt;PaginationPager
+    @count=&#123;&#123;5&#125;&#125;
+    @current=&#123;&#123;1&#125;&#125;
+    @pager=&#123;&#123;true&#125;&#125;
+    @pagerSpread=&#123;&#123;true&#125;&#125;
+/&gt;</pre>
   </div>
 
   <div class="example">
     <div class="rendered"><PaginationPager @count={{5}} @current={{2}} /></div>
-    <pre>&#123;&#123;pagination-pager
-    count=5
-    current=2&#125;&#125;</pre>
+    <pre>&lt;PaginationPager
+    @count=&#123;&#123;5&#125;&#125;
+    @current=&#123;&#123;2&#125;&#125;
+/&gt;</pre>
   </div>
 
   <div class="example">
     <div class="rendered"><PaginationPager @count={{5}} @current={{1}} /></div>
-    <pre>&#123;&#123;pagination-pager
-    count=5
-    current=1&#125;&#125;</pre>
+    <pre>&lt;PaginationPager
+    @count=&#123;&#123;5&#125;&#125;
+    @current=&#123;&#123;1&#125;&#125;
+/&gt;</pre>
   </div>
 
   <div class="example">
@@ -67,11 +71,12 @@
       </div>
       <PaginationPager @count={{this.autoCount}} @current={{1}} @autoHide={{this.autoHide}} @hide={{this.hidden}} />
     </div>
-    <pre>&#123;&#123;pagination-pager
-    count=autoCount
-    current=1
-    hide=hidden
-    autoHide=autoHide&#125;&#125;</pre>
+    <pre>&lt;PaginationPager
+    @count=&#123;&#123;this.autoCount&#125;&#125;
+    @current=&#123;&#123;1&#125;&#125;
+    @hide=&#123;&#123;this.hidden&#125;&#125;
+    @autoHide=&#123;&#123;this.autoHide&#125;&#125;
+/&gt;</pre>
   </div>
 
   <div class="example">
@@ -87,99 +92,108 @@
 
       <PaginationPager @count={{this.dynamicCount}} @current={{this.dynamicCurrent}} />
     </div>
-    <pre>&#123;&#123;pagination-pager
-    count=dynamicCount
-    current=dynamicCurrent&#125;&#125;</pre>
+    <pre>&lt;PaginationPager
+    @count=&#123;&#123;this.dynamicCount&#125;&#125;
+    @current=&#123;&#123;this.dynamicCurrent&#125;&#125;
+/&gt;</pre>
   </div>
 
   <div class="example">
     <div class="rendered"><PaginationPager @count={{this.dynamicCount}} @current={{this.dynamicCurrent}} @change={{action "pageChanged"}} @urlTemplate="localhost:4200/pagination-pager/?page={current}" /></div>
-    <pre>&#123;&#123;pagination-pager
-    count=dynamicCount
-    current=dynamicCurrent
-    change=(action 'pageChanged')
-    urlTemplate='localhost:4200/pagination-pager/?page={current}'&#125;&#125;</pre>
+    <pre>&lt;PaginationPager
+    @count=&#123;&#123;this.dynamicCount&#125;&#125;
+    @current=&#123;&#123;this.dynamicCurrent&#125;&#125;
+    @change=&#123;&#123;this.pageChanged&#125;&#125;
+    @urlTemplate='localhost:4200/pagination-pager/?page={current}'
+/&gt;</pre>
   </div>
 
   <div class="example">
     <div class="rendered"><PaginationPager @count={{5}} @current={{5}} @size="lg" /></div>
-    <pre>&#123;&#123;pagination-pager
-    count=5
-    current=5
-    size='lg'&#125;&#125;</pre>
+    <pre>&lt;PaginationPager
+    @count=&#123;&#123;5&#125;&#125;
+    @current=&#123;&#123;5&#125;&#125;
+    @size='lg'
+/&gt;</pre>
   </div>
 
   <div class="example">
     <div class="rendered"><PaginationPager @count={{5}} @current={{5}} @size="lg" @paginationNext="next" @paginationPrevious="previous" /></div>
-    <pre>&#123;&#123;pagination-pager
-    count=5
-    current=5
-    size='lg'
-    paginationNext='next'
-    paginationPrevious='previous'&#125;&#125;</pre>
+    <pre>&lt;PaginationPager
+    @count=&#123;&#123;5&#125;&#125;
+    @current=&#123;&#123;5&#125;&#125;
+    @size='lg'
+    @paginationNext='next'
+    @paginationPrevious='previous'
+/&gt;</pre>
   </div>
 
   <div class="example">
     <div class="rendered"><PaginationPager @count={{1}} @current={{1}} /></div>
-    <pre>&#123;&#123;pagination-pager
-    count=1
-    current=1&#125;&#125;</pre>
+    <pre>&lt;PaginationPager
+    @count=&#123;&#123;1&#125;&#125;
+    @current=&#123;&#123;1&#125;&#125;
+/&gt;</pre>
   </div>
 
   <div class="example">
     <div class="rendered"><PaginationPager @count={{1}} @current={{1}} @hide={{true}} /></div>
-    <pre>&#123;&#123;pagination-pager
-    count=1
-    current=1
-    hide=true&#125;&#125;</pre>
+    <pre>&lt;PaginationPager
+    @count=&#123;&#123;1&#125;&#125;
+    @current=&#123;&#123;1&#125;&#125;
+    @hide=&#123;&#123;true&#125;&#125;
+/&gt;</pre>
   </div>
 
   <div class="example">
     <div class="rendered"><PaginationPager @count={{5}} @current={{2}} @change={{action "pageChanged"}} @disabled={{true}} /></div>
-    <pre>&#123;&#123;pagination-pager
-    count=5
-    current=2
-    change=(action 'pageChanged')
-    disabled=true&#125;&#125;</pre>
+    <pre>&lt;PaginationPager
+    @count=&#123;&#123;5&#125;&#125;
+    @current=&#123;&#123;2&#125;&#125;
+    @change=&#123;&#123;this.pageChanged&#125;&#125;
+    @disabled=&#123;&#123;true&#125;&#125;
+/&gt;</pre>
   </div>
 
   <div class="example">
     <div class="rendered"><PaginationPager @count={{1}} @current={{1}} @pager={{true}} @hide={{true}} /></div>
-    <pre>&#123;&#123;pagination-pager
-    count=1
-    current=1
-    pager=true
-    hide=true&#125;&#125;</pre>
+    <pre>&lt;PaginationPager
+    @count=&#123;&#123;1&#125;&#125;
+    @current=&#123;&#123;1&#125;&#125;
+    @pager=&#123;&#123;true&#125;&#125;
+    @hide=&#123;&#123;true&#125;&#125;
+/&gt;</pre>
   </div>
 
   <div class="example">
     <div class="rendered"><PaginationPager @count={{5}} @current={{2}} @pager={{true}} @disabled={{true}} /></div>
-    <pre>&#123;&#123;pagination-pager
-    count=5
-    current=2
-    pager=true
-    disabled=true&#125;&#125;</pre>
+    <pre>&lt;PaginationPager
+    @count=&#123;&#123;5&#125;&#125;
+    @current=&#123;&#123;2&#125;&#125;
+    @pager=&#123;&#123;true&#125;&#125;
+    @disabled=&#123;&#123;true&#125;&#125;
+/&gt;</pre>
   </div>
 
   <div class="example">
     <div class="rendered"><PaginationPager @count={{5}} @current={{this.current}} @pager={{true}}> Page {{this.current}} of 5 </PaginationPager></div>
-    <pre>&#123;&#123;#pagination-pager count=5 current=2 pager=true&#125;&#125;
-    Page &#123;&#123;current&#125;&#125; of 5
-&#123;&#123;/pagination-pager&#125;&#125;</pre>
+    <pre>&lt;PaginationPager @count=&#123;&#123;5&#125;&#125; @current=&#123;&#123;this.current&#125;&#125; @pager=&#123;&#123;true&#125;&#125; /&gt;
+    Page &#123;&#123;this.current&#125;&#125; of 5
+&lt;/PaginationPager&gt;</pre>
   </div>
 
   <div class="example">
-    <div class="rendered"><PaginationPager @count={{5}} @current={{this.current}} @pager={{true}} @pagerPrevious="<span class='glyphicon glyphicon-play gly-flip-horizontal'></span>" @pagerNext="<span class='glyphicon glyphicon-play'></span>" @pagerFirst="<span class='glyphicon glyphicon-step-backward'></span>" @pagerLast="<span class='glyphicon glyphicon-step-forward'></span>"> Page {{current}} of 5 </PaginationPager></div>
-    <pre>&#123;&#123;#pagination-pager
-      count=5
-      current=current
-      pager=true
-      pagerPrevious='&lt;span class="glyphicon glyphicon-play gly-flip-horizontal"&gt;&lt;/span&gt;'
-      pagerNext='&lt;span class="glyphicon glyphicon-play"&gt;&lt;/span&gt;'
-      pagerFirst='&lt;span class="glyphicon glyphicon-step-backward"&gt;&lt;/span&gt;'
-      pagerLast='&lt;span class="glyphicon glyphicon-step-forward"&gt;&lt;/span&gt;'&#125;&#125;
-    Page &#123;&#123;current&#125;&#125; of 5
-&#123;&#123;/pagination-pager&#125;&#125;</pre>
+    <div class="rendered"><PaginationPager @count={{5}} @current={{this.current}} @pager={{true}} @pagerPrevious="<span class='glyphicon glyphicon-play gly-flip-horizontal'></span>" @pagerNext="<span class='glyphicon glyphicon-play'></span>" @pagerFirst="<span class='glyphicon glyphicon-step-backward'></span>" @pagerLast="<span class='glyphicon glyphicon-step-forward'></span>"> Page {{this.current}} of 5 </PaginationPager></div>
+    <pre>&lt;PaginationPager
+      @count=&#123;&#123;5&#125;&#125;
+      @current=&#123;&#123;this.current&#125;&#125;
+      @pager=&#123;&#123;true&#125;&#125;
+      @pagerPrevious='&lt;span class="glyphicon glyphicon-play gly-flip-horizontal"&gt;&lt;/span&gt;'
+      @pagerNext='&lt;span class="glyphicon glyphicon-play"&gt;&lt;/span&gt;'
+      @pagerFirst='&lt;span class="glyphicon glyphicon-step-backward"&gt;&lt;/span&gt;'
+      @pagerLast='&lt;span class="glyphicon glyphicon-step-forward"&gt;&lt;/span&gt;'&gt;
+    Page &#123;&#123;this.current&#125;&#125; of 5
+&lt;/PaginationPager&gt;</pre>
   </div>
 
 </div>
