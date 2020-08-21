@@ -1,6 +1,33 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [4.0.0](https://github.com/knownasilya/pagination-pager/compare/v3.2.4...v4.0.0) (2020-08-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* Drop Ember < 3.12 & Ember CLI < 2.13
+* Drop Node.js < 10
+
+* fix: codemods
+
+* docs: update examples to anglebracket syntax
+
+* docs: remove diff text
+
+* chore: update lock file
+
+* fix: dummy app and funnel
+
+* chore: update comment
+
+* fix: dummy explicit this
+
+### Bug Fixes
+
+* set rooturl only in prod ([5eab51e](https://github.com/knownasilya/pagination-pager/commit/5eab51e2df14dba61d8f447d6b7564a97caf41a4))
+* update deps and drop support for old ember, ember-cli and node (breaking changes) ([7675402](https://github.com/knownasilya/pagination-pager/commit/7675402dd7d3f2de105bb6d74948c66f2a1963f3))
 
 <a name="3.2.4"></a>
 ## [3.2.4](https://github.com/knownasilya/pagination-pager/compare/v3.2.3...v3.2.4) (2018-07-26)
