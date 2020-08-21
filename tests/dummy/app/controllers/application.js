@@ -12,6 +12,6 @@ export default Controller.extend({
       this.set('dynamicCurrent', current);
       // eslint-disable-next-line no-console
       console.log(current, last);
-    }
-  }
+    },
+  },
 });

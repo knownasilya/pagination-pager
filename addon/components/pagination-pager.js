@@ -24,34 +24,43 @@ export default Component.extend({
   lastPage: alias('count'),
 
   previousUrl: computed('urlTemplate', 'current', 'firstPage', function () {
-    let urlTemplate = this.get('urlTemplate');
-    let current = this.get('current');
-    let firstPage = this.get('firstPage');
-    let firstPageUrlTemplate = this.get('firstPageUrlTemplate');
+    let urlTemplate = this.urlTemplate;
+    let current = this.current;
+    let firstPage = this.firstPage;
+    let firstPageUrlTemplate = this.firstPageUrlTemplate;
 
-    if (firstPageUrlTemplate && (((current - 1) === firstPage) || current === firstPage)) {
+    if (
+      firstPageUrlTemplate &&
+      (current - 1 === firstPage || current === firstPage)
+    ) {
       return firstPageUrlTemplate;
     }
 
-    urlTemplate = urlTemplate.replace('{current}', current > firstPage ? current - 1 : current);
+    urlTemplate = urlTemplate.replace(
+      '{current}',
+      current > firstPage ? current - 1 : current
+    );
 
     return urlTemplate;
   }),
 
   nextUrl: computed('urlTemplate', 'current', 'count', function () {
-    let urlTemplate = this.get('urlTemplate');
-    let current = this.get('current');
-    let count = this.get('count');
+    let urlTemplate = this.urlTemplate;
+    let current = this.current;
+    let count = this.count;
 
-    urlTemplate = urlTemplate.replace('{current}', current < count ? current + 1 : current);
+    urlTemplate = urlTemplate.replace(
+      '{current}',
+      current < count ? current + 1 : current
+    );
 
     return urlTemplate;
   }),
 
   firstUrl: computed('urlTemplate', 'current', 'firstPage', function () {
-    let urlTemplate = this.get('urlTemplate');
-    let firstPage = this.get('firstPage');
-    let firstPageUrlTemplate = this.get('firstPageUrlTemplate');
+    let urlTemplate = this.urlTemplate;
+    let firstPage = this.firstPage;
+    let firstPageUrlTemplate = this.firstPageUrlTemplate;
 
     if (firstPageUrlTemplate) {
       return firstPageUrlTemplate;
@@ -63,8 +72,8 @@ export default Component.extend({
   }),
 
   lastUrl: computed('urlTemplate', 'current', 'lastPage', function () {
-    let urlTemplate = this.get('urlTemplate');
-    let lastPage = this.get('lastPage');
+    let urlTemplate = this.urlTemplate;
+    let lastPage = this.lastPage;
 
     urlTemplate = urlTemplate.replace('{current}', lastPage);
 
@@ -72,19 +81,21 @@ export default Component.extend({
   }),
 
   currentPage: computed('current', function () {
-    return Number(this.get('current'));
+    return Number(this.current);
   }),
 
   paginationSizeClass: computed('paginationSize', function () {
-    let size = this.get('size');
-    let pager = this.get('pager');
+    let size = this.size;
+    let pager = this.pager;
 
-    return !pager && size && (size === 'lg' || size === 'sm') ? 'pagination-' + size : '';
+    return !pager && size && (size === 'lg' || size === 'sm')
+      ? 'pagination-' + size
+      : '';
   }),
 
   isFirst: computed('firstPage', 'current', function () {
-    let currentPage = parseInt(this.get('currentPage'));
-    let firstPage = parseInt(this.get('firstPage'));
+    let currentPage = parseInt(this.currentPage);
+    let firstPage = parseInt(this.firstPage);
 
     return currentPage === firstPage;
   }),
@@ -92,8 +103,8 @@ export default Component.extend({
   isFirstDisabled: or('disabled', 'isFirst'),
 
   isLast: computed('lastPage', 'current', function () {
-    let currentPage = parseInt(this.get('currentPage'));
-    let lastPage = parseInt(this.get('lastPage'));
+    let currentPage = parseInt(this.currentPage);
+    let lastPage = parseInt(this.lastPage);
 
     return currentPage === lastPage;
   }),
@@ -101,19 +112,19 @@ export default Component.extend({
   isLastDisabled: or('disabled', 'isLast'),
 
   isHidden: computed('hide', 'autoHide', 'count', function () {
-    let autoHide = this.get('autoHide');
-    let count = this.get('count');
-    let hide = this.get('hide');
+    let autoHide = this.autoHide;
+    let count = this.count;
+    let hide = this.hide;
 
     return hide || (autoHide && (!count || count <= 1));
   }),
 
   pages: computed('count', 'current', 'countOut', 'countIn', function () {
-    let seperator = this.get('seperator');
-    let current = this.get('current');
-    let count = this.get('count');
-    let countOut = this.get('countOut');
-    let countIn = this.get('countIn');
+    let seperator = this.seperator;
+    let current = this.current;
+    let count = this.count;
+    let countOut = this.countOut;
+    let countIn = this.countIn;
     let result = [];
     let i;
 
@@ -122,21 +133,21 @@ export default Component.extend({
     let n2 = Math.min(countOut, count);
 
     // Ending group of pages: n7...n8
-    let n7 = Math.max(1, (count - countOut + 1));
+    let n7 = Math.max(1, count - countOut + 1);
     let n8 = count;
 
     // Middle group of pages: n4...n5
     let n4 = Math.max(n2 + 1, current - countIn);
     let n5 = Math.min(n7 - 1, current + countIn);
-    let useMiddle = (n5 >= n4);
+    let useMiddle = n5 >= n4;
 
     // Point n3 between n2 and n4
     let n3 = Math.floor((n2 + n4) / 2);
-    let useN3 = (useMiddle && ((n4 - n2) > 1));
+    let useN3 = useMiddle && n4 - n2 > 1;
 
     // Point $n6 between $n5 and $n7
     let n6 = Math.floor((n5 + n7) / 2);
-    let useN6 = (useMiddle && ((n7 - n5) > 1));
+    let useN6 = useMiddle && n7 - n5 > 1;
 
     let links = [];
 
@@ -175,12 +186,12 @@ export default Component.extend({
 
   actions: {
     next() {
-      if (this.get('disabled')) {
+      if (this.disabled) {
         return;
       }
 
-      if (!this.get('isLast')) {
-        let previous = parseInt(this.get('current'), 10);
+      if (!this.isLast) {
+        let previous = parseInt(this.current, 10);
         let current = previous + 1;
 
         this.send('pageChanged', current, previous);
@@ -188,12 +199,12 @@ export default Component.extend({
     },
 
     previous() {
-      if (this.get('disabled')) {
+      if (this.disabled) {
         return;
       }
 
-      if (!this.get('isFirst')) {
-        let previous = parseInt(this.get('current'), 10);
+      if (!this.isFirst) {
+        let previous = parseInt(this.current, 10);
         let current = previous - 1;
 
         this.send('pageChanged', current, previous);
@@ -201,37 +212,37 @@ export default Component.extend({
     },
 
     first() {
-      if (this.get('disabled')) {
+      if (this.disabled) {
         return;
       }
 
-      if (!this.get('isFirst')) {
-        let previous = parseInt(this.get('current'), 10);
-        let current = this.get('firstPage');
+      if (!this.isFirst) {
+        let previous = parseInt(this.current, 10);
+        let current = this.firstPage;
 
         this.send('pageChanged', current, previous);
       }
     },
 
     last() {
-      if (this.get('disabled')) {
+      if (this.disabled) {
         return;
       }
 
-      if (!this.get('isLast')) {
-        let previous = parseInt(this.get('current'), 10);
-        let current = this.get('lastPage');
+      if (!this.isLast) {
+        let previous = parseInt(this.current, 10);
+        let current = this.lastPage;
 
         this.send('pageChanged', current, previous);
       }
     },
 
     pageChanged(page, previous) {
-      if (this.get('change')) {
-        this.get('change')(page, previous);
+      if (this.change) {
+        this.change(page, previous);
       } else {
         this.set('current', page);
       }
-    }
-  }
+    },
+  },
 });
