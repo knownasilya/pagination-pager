@@ -25,5 +25,18 @@ module.exports = function (defaults) {
     destDir: '/fonts',
   });
 
-  return mergeTrees([app.toTree(), fonts]);
+  let appWithFonts = mergeTrees([app.toTree(), fonts]);
+
+  if ('@embroider/webpack' in app.dependencies()) {
+    const { Webpack } = require('@embroider/webpack'); // eslint-disable-line
+    return require('@embroider/compat') // eslint-disable-line
+      .compatBuild(appWithFonts, Webpack, {
+        staticAddonTestSupportTrees: true,
+        staticAddonTrees: true,
+        staticHelpers: true,
+        staticComponents: true,
+      });
+  }
+
+  return appWithFonts;
 };
