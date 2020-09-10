@@ -7,7 +7,7 @@ export default Component.extend({
   seperator: '…',
   selected: null,
 
-  url: computed('urlTemplate', 'page', function () {
+  url: computed('firstPage', 'firstPageUrlTemplate', 'page', 'urlTemplate', function () {
     let urlTemplate = this.urlTemplate;
     let current = this.page;
     let firstPage = this.firstPage;
@@ -30,7 +30,7 @@ export default Component.extend({
     }
   }),
 
-  isDots: computed('page', function () {
+  isDots: computed('page', 'seperator', function () {
     let seperator = this.seperator;
     let page = this.page;
 

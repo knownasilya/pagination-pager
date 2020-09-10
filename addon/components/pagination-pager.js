@@ -23,7 +23,7 @@ export default Component.extend({
   firstPageUrlTemplate: null,
   lastPage: alias('count'),
 
-  previousUrl: computed('urlTemplate', 'current', 'firstPage', function () {
+  previousUrl: computed('current', 'firstPage', 'firstPageUrlTemplate', 'urlTemplate', function () {
     let urlTemplate = this.urlTemplate;
     let current = this.current;
     let firstPage = this.firstPage;
@@ -57,7 +57,7 @@ export default Component.extend({
     return urlTemplate;
   }),
 
-  firstUrl: computed('urlTemplate', 'current', 'firstPage', function () {
+  firstUrl: computed('current', 'firstPage', 'firstPageUrlTemplate', 'urlTemplate', function () {
     let urlTemplate = this.urlTemplate;
     let firstPage = this.firstPage;
     let firstPageUrlTemplate = this.firstPageUrlTemplate;
@@ -84,7 +84,7 @@ export default Component.extend({
     return Number(this.current);
   }),
 
-  paginationSizeClass: computed('paginationSize', function () {
+  paginationSizeClass: computed('pager', 'paginationSize', 'size', function () {
     let size = this.size;
     let pager = this.pager;
 
@@ -93,7 +93,7 @@ export default Component.extend({
       : '';
   }),
 
-  isFirst: computed('firstPage', 'current', function () {
+  isFirst: computed('current', 'currentPage', 'firstPage', function () {
     let currentPage = parseInt(this.currentPage);
     let firstPage = parseInt(this.firstPage);
 
@@ -102,7 +102,7 @@ export default Component.extend({
 
   isFirstDisabled: or('disabled', 'isFirst'),
 
-  isLast: computed('lastPage', 'current', function () {
+  isLast: computed('current', 'currentPage', 'lastPage', function () {
     let currentPage = parseInt(this.currentPage);
     let lastPage = parseInt(this.lastPage);
 
@@ -119,7 +119,7 @@ export default Component.extend({
     return hide || (autoHide && (!count || count <= 1));
   }),
 
-  pages: computed('count', 'current', 'countOut', 'countIn', function () {
+  pages: computed('count', 'countIn', 'countOut', 'current', 'seperator', function () {
     let seperator = this.seperator;
     let current = this.current;
     let count = this.count;
