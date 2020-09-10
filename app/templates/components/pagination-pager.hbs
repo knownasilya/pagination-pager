@@ -1,7 +1,46 @@
 <ul class="{{if pager 'pager' 'pagination'}} {{paginationSizeClass}}">
-  {{#unless pager}}
+  {{#if pager}}
+    {{#if pagerFirst}}
+      <li class="{{if isFirstDisabled 'disabled'}}">
+        <a href="{{firstUrl}}" {{action 'first'}}>
+          {{! template-lint-disable no-triple-curlies}}
+          {{{pagerFirst}}}
+        </a>
+      </li>
+    {{/if}}
+
+    <li class="{{if pagerSpread 'previous'}} {{if isFirstDisabled 'disabled'}}">
+      <a href="{{previousUrl}}" {{action 'previous'}}>
+        {{! template-lint-disable no-triple-curlies}}
+        {{{pagerPrevious}}}
+      </a>
+    </li>
+
+    {{#if hasBlock}}
+      <li class='pager-inner'>
+        {{yield}}
+      </li>
+    {{/if}}
+
+    <li class="{{if pagerSpread 'next'}} {{if isLastDisabled 'disabled'}}">
+      <a href="{{nextUrl}}" {{action 'next'}}>
+        {{! template-lint-disable no-triple-curlies}}
+        {{{pagerNext}}}
+      </a>
+    </li>
+
+    {{#if pagerLast}}
+      <li class="last {{if isLastDisabled 'disabled'}}">
+        <a href="{{lastUrl}}" {{action 'last'}}>
+          {{! template-lint-disable no-triple-curlies}}
+          {{{pagerLast}}}
+        </a>
+      </li>
+    {{/if}}
+  {{else}}
     <li class="previous {{if isFirstDisabled 'disabled'}}">
       <a href="{{previousUrl}}" {{action 'previous'}}>
+        {{! template-lint-disable no-triple-curlies}}
         {{{paginationPrevious}}}
       </a>
     </li>
@@ -21,42 +60,9 @@
 
     <li class="next {{if isLastDisabled 'disabled'}}">
       <a href="{{nextUrl}}" {{action 'next'}}>
+        {{! template-lint-disable no-triple-curlies}}
         {{{paginationNext}}}
       </a>
     </li>
-  {{else}}
-    {{#if pagerFirst}}
-      <li class="{{if isFirstDisabled 'disabled'}}">
-        <a href="{{firstUrl}}" {{action 'first'}}>
-          {{{pagerFirst}}}
-        </a>
-      </li>
-    {{/if}}
-
-    <li class="{{if pagerSpread 'previous'}} {{if isFirstDisabled 'disabled'}}">
-      <a href="{{previousUrl}}" {{action 'previous'}}>
-        {{{pagerPrevious}}}
-      </a>
-    </li>
-
-    {{#if hasBlock}}
-      <li class='pager-inner'>
-        {{yield}}
-      </li>
-    {{/if}}
-
-    <li class="{{if pagerSpread 'next'}} {{if isLastDisabled 'disabled'}}">
-      <a href="{{nextUrl}}" {{action 'next'}}>
-        {{{pagerNext}}}
-      </a>
-    </li>
-
-    {{#if pagerLast}}
-      <li class="last {{if isLastDisabled 'disabled'}}">
-        <a href="{{lastUrl}}" {{action 'last'}}>
-          {{{pagerLast}}}
-        </a>
-      </li>
-    {{/if}}
-  {{/unless}}
+  {{/if}}
 </ul>
