@@ -24,8 +24,7 @@ module.exports = function (defaults) {
     srcDir: '/',
     destDir: '/fonts',
   });
-  const appWithFonts = mergeTrees([app.toTree(), fonts]);
 
   const { maybeEmbroider } = require('@embroider/test-setup');
-  return maybeEmbroider(appWithFonts);
+  return mergeTrees([maybeEmbroider(app), fonts]);
 };
