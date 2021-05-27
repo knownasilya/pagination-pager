@@ -5,7 +5,7 @@ const mergeTrees = require('broccoli-merge-trees');
 const funnel = require('broccoli-funnel');
 
 module.exports = function (defaults) {
-  let app = new EmberAddon(defaults, {
+  const app = new EmberAddon(defaults, {
     // Add options here
   });
 
@@ -20,23 +20,11 @@ module.exports = function (defaults) {
   //app.import('node_modules/bootstrap/dist/js/bootstrap.js');
 
   // Copy glyphicon fonts
-  let fonts = funnel('node_modules/bootstrap/dist/fonts', {
+  const fonts = funnel('node_modules/bootstrap/dist/fonts', {
     srcDir: '/',
     destDir: '/fonts',
   });
 
-  let appWithFonts = mergeTrees([app.toTree(), fonts]);
-
-  if ('@embroider/webpack' in app.dependencies()) {
-    const { Webpack } = require('@embroider/webpack'); // eslint-disable-line
-    return require('@embroider/compat') // eslint-disable-line
-      .compatBuild(appWithFonts, Webpack, {
-        staticAddonTestSupportTrees: true,
-        staticAddonTrees: true,
-        staticHelpers: true,
-        staticComponents: true,
-      });
-  }
-
-  return appWithFonts;
+  const { maybeEmbroider } = require('@embroider/test-setup');
+  return mergeTrees([maybeEmbroider(app), fonts]);
 };

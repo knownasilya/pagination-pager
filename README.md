@@ -18,9 +18,9 @@ Here's a [demo][1], and these are the original Bootstrap Components: [Pagination
 
 ## Compatibility
 
-- Ember.js v3.12 or above
+- Ember.js v3.16 or above
 - Ember CLI v2.13 or above
-- Node.js v10 or above
+- Node.js v12 or above
 
 ## Getting Started
 
@@ -70,9 +70,16 @@ By default the first page is `1`, and the last is the value of `count`, you can 
 - `@pagerSpread` -- Pager buttons spaced out, defaults to false
 
 ```hbs
-<PaginationPager @pager={{true}} @count={{this.count}} @current={{this.current}}>
+<PaginationPager
+  @pager={{true}}
+  @count={{this.count}}
+  @current={{this.current}}
+>
   <!-- This will show up between the two buttons. -->
-  Page {{current}} of {{count}}
+  Page
+  {{current}}
+  of
+  {{count}}
 </PaginationPager>
 ```
 
