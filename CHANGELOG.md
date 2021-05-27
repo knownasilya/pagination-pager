@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.1](https://github.com/knownasilya/pagination-pager/compare/v4.0.0...v4.0.1) (2020-09-12)
+
+
+### Bug Fixes
+
+* add qunit-dom, ws missing from deps ([8f51d53](https://github.com/knownasilya/pagination-pager/commit/8f51d5340478d98d8035a4db8e01a176d91e92b6))
+* js lint and missing cp keys ([5cd8dda](https://github.com/knownasilya/pagination-pager/commit/5cd8dda6e6be9aa50b9ce171b9e39f969b014d43))
+* lint ([0a86c8c](https://github.com/knownasilya/pagination-pager/commit/0a86c8c6cfa0a1bd4daa6db48e954e474d3194f9))
+
 ## [4.0.0](https://github.com/knownasilya/pagination-pager/compare/v3.2.4...v4.0.0) (2020-08-21)
 
 
