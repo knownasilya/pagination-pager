@@ -2,6 +2,7 @@
 
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 const mergeTrees = require('broccoli-merge-trees');
+const { maybeEmbroider } = require('@embroider/test-setup');
 const funnel = require('broccoli-funnel');
 
 module.exports = function (defaults) {
@@ -38,5 +39,11 @@ module.exports = function (defaults) {
       });
   }
 
-  return appWithFonts;
+  return maybeEmbroider(appWithFonts, {
+    skipBabel: [
+      {
+        package: 'qunit',
+      },
+    ],
+  });
 };

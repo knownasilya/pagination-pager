@@ -1,23 +1,24 @@
 'use strict';
 
 const getChannelURL = require('ember-source-channel-url');
+const { embroiderSafe, embroiderOptimized } = require('@embroider/test-setup');
 
 module.exports = async function () {
   return {
     scenarios: [
       {
-        name: 'ember-lts-3.12',
+        name: 'ember-lts-3.24',
         npm: {
           devDependencies: {
-            'ember-source': '~3.12.0',
+            'ember-source': '~3.24.3',
           },
         },
       },
       {
-        name: 'ember-lts-3.16',
+        name: 'ember-lts-3.28',
         npm: {
           devDependencies: {
-            'ember-source': '~3.16.0',
+            'ember-source': '~3.28.0',
           },
         },
       },
@@ -46,19 +47,6 @@ module.exports = async function () {
         },
       },
       {
-        name: 'ember-default-with-jquery',
-        env: {
-          EMBER_OPTIONAL_FEATURES: JSON.stringify({
-            'jquery-integration': true,
-          }),
-        },
-        npm: {
-          devDependencies: {
-            '@ember/jquery': '^0.5.1',
-          },
-        },
-      },
-      {
         name: 'ember-classic',
         env: {
           EMBER_OPTIONAL_FEATURES: JSON.stringify({
@@ -68,21 +56,16 @@ module.exports = async function () {
           }),
         },
         npm: {
+          devDependencies: {
+            'ember-source': '~3.28.0',
+          },
           ember: {
             edition: 'classic',
           },
         },
       },
-      {
-        name: 'embroider-tests',
-        npm: {
-          devDependencies: {
-            '@embroider/core': '*',
-            '@embroider/webpack': '*',
-            '@embroider/compat': '*',
-          },
-        },
-      },
+      embroiderSafe(),
+      embroiderOptimized(),
     ],
   };
 };

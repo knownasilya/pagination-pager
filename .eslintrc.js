@@ -11,7 +11,11 @@ module.exports = {
     },
   },
   plugins: ['ember'],
-  extends: ['eslint:recommended', 'plugin:ember/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:ember/recommended',
+    'plugin:prettier/recommended',
+  ],
   env: {
     browser: true,
   },
@@ -21,15 +25,15 @@ module.exports = {
     {
       files: [
         '.eslintrc.js',
+        '.prettierrc.js',
         '.template-lintrc.js',
-        'ember-cli-build.js',
-        'index.js',
-        'testem.js',
-        'ember-cli-build.js',
-        'config/**/*.js',
-        'tests/dummy/config/**/*.js',
+        './ember-cli-build.js',
+        './index.js',
+        './testem.js',
+        './blueprints/*/index.js',
+        './config/**/*.js',
+        './tests/dummy/config/**/*.js',
       ],
-      excludedFiles: ['app/**', 'addon/**', 'tests/dummy/app/**'],
       parserOptions: {
         sourceType: 'script',
       },
@@ -39,6 +43,11 @@ module.exports = {
       },
       plugins: ['node'],
       extends: ['plugin:node/recommended'],
+    },
+    {
+      // Test files:
+      files: ['tests/**/*-test.{js,ts}'],
+      extends: ['plugin:qunit/recommended'],
     },
   ],
 };
