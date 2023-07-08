@@ -1,9 +1,9 @@
-{{#if isDots}}
+{{#if this.isDots}}
   <span>
-    {{page}}
+    {{this.page}}
   </span>
 {{else}}
-  <a href="{{url}}" {{action 'select'}}>
-    {{page}}
+  <a href="{{this.url}}" {{action 'select'}}>
+    {{this.page}}
   </a>
 {{/if}}

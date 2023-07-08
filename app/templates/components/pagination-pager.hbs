@@ -1,18 +1,18 @@
-<ul class="{{if pager 'pager' 'pagination'}} {{paginationSizeClass}}">
-  {{#if pager}}
-    {{#if pagerFirst}}
-      <li class="{{if isFirstDisabled 'disabled'}}">
-        <a href="{{firstUrl}}" {{action 'first'}}>
+<ul class="{{if this.pager 'pager' 'pagination'}} {{this.paginationSizeClass}}">
+  {{#if this.pager}}
+    {{#if this.pagerFirst}}
+      <li class="{{if this.isFirstDisabled 'disabled'}}">
+        <a href="{{this.firstUrl}}" {{action 'first'}}>
           {{! template-lint-disable no-triple-curlies}}
-          {{{pagerFirst}}}
+          {{{this.pagerFirst}}}
         </a>
       </li>
     {{/if}}
 
-    <li class="{{if pagerSpread 'previous'}} {{if isFirstDisabled 'disabled'}}">
-      <a href="{{previousUrl}}" {{action 'previous'}}>
+    <li class="{{if this.pagerSpread 'previous'}} {{if this.isFirstDisabled 'disabled'}}">
+      <a href="{{this.previousUrl}}" {{action 'previous'}}>
         {{! template-lint-disable no-triple-curlies}}
-        {{{pagerPrevious}}}
+        {{{this.pagerPrevious}}}
       </a>
     </li>
 
@@ -22,46 +22,46 @@
       </li>
     {{/if}}
 
-    <li class="{{if pagerSpread 'next'}} {{if isLastDisabled 'disabled'}}">
-      <a href="{{nextUrl}}" {{action 'next'}}>
+    <li class="{{if this.pagerSpread 'next'}} {{if this.isLastDisabled 'disabled'}}">
+      <a href="{{this.nextUrl}}" {{action 'next'}}>
         {{! template-lint-disable no-triple-curlies}}
-        {{{pagerNext}}}
+        {{{this.pagerNext}}}
       </a>
     </li>
 
-    {{#if pagerLast}}
-      <li class="last {{if isLastDisabled 'disabled'}}">
-        <a href="{{lastUrl}}" {{action 'last'}}>
+    {{#if this.pagerLast}}
+      <li class="last {{if this.isLastDisabled 'disabled'}}">
+        <a href="{{this.lastUrl}}" {{action 'last'}}>
           {{! template-lint-disable no-triple-curlies}}
-          {{{pagerLast}}}
+          {{{this.pagerLast}}}
         </a>
       </li>
     {{/if}}
   {{else}}
-    <li class="previous {{if isFirstDisabled 'disabled'}}">
-      <a href="{{previousUrl}}" {{action 'previous'}}>
+    <li class="previous {{if this.isFirstDisabled 'disabled'}}">
+      <a href="{{this.previousUrl}}" {{action 'previous'}}>
         {{! template-lint-disable no-triple-curlies}}
-        {{{paginationPrevious}}}
+        {{{this.paginationPrevious}}}
       </a>
     </li>
 
-    {{#each pages key='@index' as |page|}}
+    {{#each this.pages key='@index' as |page|}}
       {{page-item
-        disabled=disabled
+        disabled=this.disabled
         page=page
         selected=this.current
-        seperator=seperator
-        urlTemplate=urlTemplate
-        firstPage=firstPage
-        firstPageUrlTemplate=firstPageUrlTemplate
+        seperator=this.seperator
+        urlTemplate=this.urlTemplate
+        firstPage=this.firstPage
+        firstPageUrlTemplate=this.firstPageUrlTemplate
         pageSet=(action 'pageChanged')
       }}
     {{/each}}
 
-    <li class="next {{if isLastDisabled 'disabled'}}">
-      <a href="{{nextUrl}}" {{action 'next'}}>
+    <li class="next {{if this.isLastDisabled 'disabled'}}">
+      <a href="{{this.nextUrl}}" {{action 'next'}}>
         {{! template-lint-disable no-triple-curlies}}
-        {{{paginationNext}}}
+        {{{this.paginationNext}}}
       </a>
     </li>
   {{/if}}
