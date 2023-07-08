@@ -116,12 +116,12 @@ See the [Contributing](CONTRIBUTING.md) guide for details.
 ember github-pages:commit --message <message describing demo release>
 ```
 
-[1]: http://knownasilya.github.io/pagination-pager/
+[1]: http://@volldigital.github.io/pagination-pager/
 [2]: http://getbootstrap.com/components/#pagination
 [3]: http://getbootstrap.com/components/#pagination-pager
 [npm-badge-img]: https://badge.fury.io/js/pagination-pager.svg
 [npm-badge-link]: http://badge.fury.io/js/pagination-pager
-[travis-badge]: https://travis-ci.org/knownasilya/pagination-pager.svg
-[travis-badge-url]: https://travis-ci.org/knownasilya/pagination-pager
+[travis-badge]: https://travis-ci.org/@volldigital/pagination-pager.svg
+[travis-badge-url]: https://travis-ci.org/@volldigital/pagination-pager
 [ember-observer-badge]: http://emberobserver.com/badges/pagination-pager.svg
 [ember-observer-url]: http://emberobserver.com/addons/pagination-pager

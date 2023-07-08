@@ -1,12 +1,11 @@
 'use strict';
 
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
-const mergeTrees = require('broccoli-merge-trees');
 const { maybeEmbroider } = require('@embroider/test-setup');
 const funnel = require('broccoli-funnel');
 
 module.exports = function (defaults) {
-  let app = new EmberAddon(defaults, {
+  const app = new EmberAddon(defaults, {
     // Add options here
   });
 
@@ -21,17 +20,20 @@ module.exports = function (defaults) {
   //app.import('node_modules/bootstrap/dist/js/bootstrap.js');
 
   // Copy glyphicon fonts
-  let fonts = funnel('node_modules/bootstrap/dist/fonts', {
+  const fonts = funnel('node_modules/bootstrap/dist/fonts', {
     srcDir: '/',
     destDir: '/fonts',
   });
 
-  let appWithFonts = mergeTrees([app.toTree(), fonts]);
+  const maybeEmbroiderAppWithFonts = maybeEmbroider(app, {
+    extraPublicTrees: [fonts],
+    skipBabel: [{ package: 'qunit' }],
+  });
 
   if ('@embroider/webpack' in app.dependencies()) {
     const { Webpack } = require('@embroider/webpack'); // eslint-disable-line
     return require('@embroider/compat') // eslint-disable-line
-      .compatBuild(appWithFonts, Webpack, {
+      .compatBuild(maybeEmbroiderAppWithFonts, Webpack, {
         staticAddonTestSupportTrees: true,
         staticAddonTrees: true,
         staticHelpers: true,
@@ -39,11 +41,5 @@ module.exports = function (defaults) {
       });
   }
 
-  return maybeEmbroider(appWithFonts, {
-    skipBabel: [
-      {
-        package: 'qunit',
-      },
-    ],
-  });
+  return maybeEmbroiderAppWithFonts;
 };
