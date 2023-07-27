@@ -1,8 +1,4 @@
-# pagination-pager
-
-[![NPM][npm-badge-img]][npm-badge-link]
-[![Build Status][travis-badge]][travis-badge-url]
-[![Ember Observer Score][ember-observer-badge]][ember-observer-url]
+# @voll/pagination-pager (fork of pagination-pager)
 
 Ember Component for Bootstrap 3 Pagination &amp; Pager components
 
@@ -27,7 +23,7 @@ Here's a [demo][1], and these are the original Bootstrap Components: [Pagination
 First install the addon.
 
 ```sh
-ember install pagination-pager
+ember install @voll/pagination-pager
 ```
 
 Then use it in your app with `<PaginationPager />` with the options
@@ -115,13 +111,3 @@ See the [Contributing](CONTRIBUTING.md) guide for details.
 ```no-highlight
 ember github-pages:commit --message <message describing demo release>
 ```
-
-[1]: http://@volldigital.github.io/pagination-pager/
-[2]: http://getbootstrap.com/components/#pagination
-[3]: http://getbootstrap.com/components/#pagination-pager
-[npm-badge-img]: https://badge.fury.io/js/pagination-pager.svg
-[npm-badge-link]: http://badge.fury.io/js/pagination-pager
-[travis-badge]: https://travis-ci.org/@volldigital/pagination-pager.svg
-[travis-badge-url]: https://travis-ci.org/@volldigital/pagination-pager
-[ember-observer-badge]: http://emberobserver.com/badges/pagination-pager.svg
-[ember-observer-url]: http://emberobserver.com/addons/pagination-pager

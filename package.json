@@ -1,10 +1,10 @@
 {
-  "name": "pagination-pager",
+  "name": "@voll/pagination-pager",
   "version": "4.0.1",
   "bugs": {
-    "url": "https://github.com/@volldigital/pagination-pager/issues"
+    "url": "https://github.com/volldigital/pagination-pager/issues"
   },
-  "homepage": "https://github.com/@volldigital/pagination-pager",
+  "homepage": "https://github.com/volldigital/pagination-pager",
   "description": "{{pagination-pager}} - Ember.js Component for Bootstrap 3 pagination & pager components",
   "keywords": [
     "ember-addon",
@@ -17,14 +17,13 @@
     "emberjs"
   ],
   "license": "MIT",
-  "author": "Ilya Radchenko <@volldigital@gmail.com>",
+  "author": "VOLL digital <technik@voll.digital>",
   "directories": {
-    "doc": "doc",
     "test": "tests"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:@volldigital/pagination-pager.git"
+    "url": "git+https://github.com/volldigital//pagination-pager.git"
   },
   "scripts": {
     "build": "ember build --environment=production",
@@ -91,5 +90,6 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
-  }
+  },
+  "main": "index.js"
 }
