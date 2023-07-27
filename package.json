@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/volldigital//pagination-pager.git"
+    "url": "git+https://github.com/volldigital/pagination-pager.git"
   },
   "scripts": {
     "build": "ember build --environment=production",
