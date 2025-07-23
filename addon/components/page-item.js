@@ -1,17 +1,14 @@
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
-export default Component.extend({
-  tagName: 'li',
-  classNameBindings: ['isActive:active', 'disabled'],
-  seperator: '…',
-  selected: null,
+export default class PageItemComponent extends Component {
+  seperator = this.args.seperator || '…';
 
-  url: computed('firstPage', 'firstPageUrlTemplate', 'page', 'urlTemplate', function () {
-    let urlTemplate = this.urlTemplate;
-    let current = this.page;
-    let firstPage = this.firstPage;
-    let firstPageUrlTemplate = this.firstPageUrlTemplate;
+  get url() {
+    let urlTemplate = this.args.urlTemplate;
+    let current = this.args.page;
+    let firstPage = this.args.firstPage;
+    let firstPageUrlTemplate = this.args.firstPageUrlTemplate;
 
     if (firstPageUrlTemplate && current === firstPage) {
       return firstPageUrlTemplate;
@@ -20,35 +17,38 @@ export default Component.extend({
     urlTemplate = urlTemplate.replace('{current}', current);
 
     return urlTemplate;
-  }),
+  }
 
-  isActive: computed('page', 'selected', function () {
+  get isActive() {
     try {
-      return this.page === Number(this.selected);
+      return this.args.page === Number(this.args.selected);
     } catch (e) {
       return false;
     }
-  }),
+  }
 
-  isDots: computed('page', 'seperator', function () {
+  get isDots() {
     let seperator = this.seperator;
-    let page = this.page;
+    let page = this.args.page;
 
     return page === seperator;
-  }),
+  }
 
-  actions: {
-    select() {
-      if (this.disabled) {
-        return;
-      }
+  get isDisabled() {
+    return this.args.disabled;
+  }
 
-      let last = this.selected;
-      let page = this.page;
+  @action
+  select() {
+    if (this.args.disabled) {
+      return;
+    }
 
-      if (page !== last) {
-        this.pageSet(page, last);
-      }
-    },
-  },
-});
+    let last = this.args.selected;
+    let page = this.args.page;
+
+    if (page !== last) {
+      this.args.pageSet(page, last);
+    }
+  }
+}
