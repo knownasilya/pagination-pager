@@ -14,13 +14,13 @@ Here's a [demo][1], and these are the original Bootstrap Components: [Pagination
 
 ## Compatibility
 
-* Ember.js v3.24 or above
-* Ember CLI v3.24 or above
-* Node.js v12 or above
+* Ember.js v4.4 or above
+* Ember CLI v4.4 or above
+* Node.js v14 or above
 
 ## Getting Started
 
-First install the addon.
+## Installation
 
 ```sh
 ember install @voll/pagination-pager
