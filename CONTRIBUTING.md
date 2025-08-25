@@ -3,7 +3,7 @@
 ## Installation
 
 * `git clone <repository-url>`
-* `cd @voll/pagination-pager`
+* `cd pagination-pager`
 * `npm install`
 
 ## Linting
