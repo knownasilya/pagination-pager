@@ -1,0 +1,15 @@
+<li class='{{if this.isActive "active"}} {{if this.isDisabled "disabled"}}'>
+  {{#if this.isDots}}
+    <span>
+      {{@page}}
+    </span>
+  {{else}}
+    <a
+      href='{{this.url}}'
+      disabled={{this.isDisabled}}
+      {{on 'click' this.select}}
+    >
+      {{@page}}
+    </a>
+  {{/if}}
+</li>

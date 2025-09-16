@@ -1,5 +1,6 @@
 # pagination-pager
 
+
 [![NPM][npm-badge-img]][npm-badge-link]
 [![Build Status][travis-badge]][travis-badge-url]
 [![Ember Observer Score][ember-observer-badge]][ember-observer-url]
@@ -18,13 +19,13 @@ Here's a [demo][1], and these are the original Bootstrap Components: [Pagination
 
 ## Compatibility
 
-- Ember.js v3.12 or above
-- Ember CLI v2.13 or above
-- Node.js v10 or above
+* Ember.js v4.4 or above
+* Ember CLI v4.4 or above
+* Node.js v14 or above
 
 ## Getting Started
 
-First install the addon.
+## Installation
 
 ```sh
 ember install pagination-pager

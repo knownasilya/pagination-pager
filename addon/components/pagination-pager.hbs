@@ -1,0 +1,87 @@
+<nav class='{{if this.isHidden "hidden"}}' aria-label='Page navigation'>
+  <ul
+    class='{{if this.pager "pager" "pagination"}} {{this.paginationSizeClass}}'
+    {{on 'click' this.click}}
+  >
+    {{#if this.pager}}
+      {{#if this.pagerFirst}}
+        <li class='{{if this.isFirstDisabled "disabled"}}'>
+          <a href='{{this.firstUrl}}' {{on 'click' this.first}}>
+            {{! template-lint-disable no-triple-curlies}}
+            {{{this.pagerFirst}}}
+          </a>
+        </li>
+      {{/if}}
+
+      <li
+        class='{{if this.pagerSpread "previous"}}
+          {{if this.isFirstDisabled "disabled"}}'
+      >
+        <a href='{{this.previousUrl}}' {{on 'click' this.previous}}>
+          {{! template-lint-disable no-triple-curlies}}
+          {{{this.pagerPrevious}}}
+        </a>
+      </li>
+
+      {{#if (has-block)}}
+        <li class='pager-inner'>
+          {{yield}}
+        </li>
+      {{/if}}
+
+      <li
+        class='{{if this.pagerSpread "next"}}
+          {{if this.isLastDisabled "disabled"}}'
+      >
+        <a href='{{this.nextUrl}}' {{on 'click' this.next}}>
+          {{! template-lint-disable no-triple-curlies}}
+          {{{this.pagerNext}}}
+        </a>
+      </li>
+
+      {{#if this.pagerLast}}
+        <li class='last {{if this.isLastDisabled "disabled"}}'>
+          <a href='{{this.lastUrl}}' {{on 'click' this.last}}>
+            {{! template-lint-disable no-triple-curlies}}
+            {{{this.pagerLast}}}
+          </a>
+        </li>
+      {{/if}}
+    {{else}}
+      <li class='previous {{if this.isFirstDisabled "disabled"}}'>
+        <a
+          href='{{this.previousUrl}}'
+          disabled={{this.isFirstDisabled}}
+          {{on 'click' this.previous}}
+        >
+          {{! template-lint-disable no-triple-curlies}}
+          {{{this.paginationPrevious}}}
+        </a>
+      </li>
+
+      {{#each this.pages key='@index' as |page|}}
+        <PageItem
+          @disabled={{this.disabled}}
+          @page={{page}}
+          @selected={{this.current}}
+          @seperator={{this.seperator}}
+          @urlTemplate={{this.urlTemplate}}
+          @firstPage={{this.firstPage}}
+          @firstPageUrlTemplate={{this.firstPageUrlTemplate}}
+          @pageSet={{this.pageChanged}}
+        />
+      {{/each}}
+
+      <li class='next {{if this.isLastDisabled "disabled"}}'>
+        <a
+          href='{{this.nextUrl}}'
+          disabled={{this.isLastDisabled}}
+          {{on 'click' this.next}}
+        >
+          {{! template-lint-disable no-triple-curlies}}
+          {{{this.paginationNext}}}
+        </a>
+      </li>
+    {{/if}}
+  </ul>
+</nav>

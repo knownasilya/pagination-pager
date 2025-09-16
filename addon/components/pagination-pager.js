@@ -1,29 +1,64 @@
-import { alias, or } from '@ember/object/computed';
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
+import { assert } from '@ember/debug';
 
-export default Component.extend({
-  tagName: 'nav',
-  classNameBindings: ['isHidden:hidden'],
-  attributeBindings: ['ariaLabel'],
-  ariaLabel: 'Page navigation',
-  pager: false,
-  hide: false,
-  autoHide: true,
-  pagerNext: 'Next',
-  pagerPrevious: 'Previous',
-  paginationPrevious: '«',
-  paginationNext: '»',
-  seperator: '…',
-  countOut: 2,
-  countIn: 2,
-  firstPage: 1,
-  current: 1,
-  urlTemplate: '#',
-  firstPageUrlTemplate: null,
-  lastPage: alias('count'),
+export default class PaginationPagerComponent extends Component {
+  get pager() {
+    return this.args.pager ?? false;
+  }
+  get hide() {
+    return this.args.hide ?? false;
+  }
+  get autoHide() {
+    return this.args.autoHide ?? true;
+  }
+  get pagerNext() {
+    return this.args.pagerNext ?? 'Next';
+  }
+  get pagerPrevious() {
+    return this.args.pagerPrevious ?? 'Previous';
+  }
+  get paginationPrevious() {
+    return this.args.paginationPrevious ?? '«';
+  }
+  get paginationNext() {
+    return this.args.paginationNext ?? '»';
+  }
+  get seperator() {
+    return this.args.seperator ?? '…';
+  }
+  get countOut() {
+    return this.args.countOut ?? 2;
+  }
+  get countIn() {
+    return this.args.countIn ?? 2;
+  }
+  get firstPage() {
+    return this.args.firstPage ?? 1;
+  }
+  get current() {
+    return this.args.current ?? 1;
+  }
+  get urlTemplate() {
+    return this.args.urlTemplate ?? '#';
+  }
+  get firstPageUrlTemplate() {
+    return this.args.firstPageUrlTemplate ?? null;
+  }
+  get count() {
+    return this.args.count;
+  }
+  get disabled() {
+    return this.args.disabled ?? false;
+  }
+  get size() {
+    return this.args.size;
+  }
+  get lastPage() {
+    return this.count;
+  }
 
-  previousUrl: computed('current', 'firstPage', 'firstPageUrlTemplate', 'urlTemplate', function () {
+  get previousUrl() {
     let urlTemplate = this.urlTemplate;
     let current = this.current;
     let firstPage = this.firstPage;
@@ -38,26 +73,26 @@ export default Component.extend({
 
     urlTemplate = urlTemplate.replace(
       '{current}',
-      current > firstPage ? current - 1 : current
+      current > firstPage ? current - 1 : current,
     );
 
     return urlTemplate;
-  }),
+  }
 
-  nextUrl: computed('urlTemplate', 'current', 'count', function () {
+  get nextUrl() {
     let urlTemplate = this.urlTemplate;
     let current = this.current;
     let count = this.count;
 
     urlTemplate = urlTemplate.replace(
       '{current}',
-      current < count ? current + 1 : current
+      current < count ? current + 1 : current,
     );
 
     return urlTemplate;
-  }),
+  }
 
-  firstUrl: computed('current', 'firstPage', 'firstPageUrlTemplate', 'urlTemplate', function () {
+  get firstUrl() {
     let urlTemplate = this.urlTemplate;
     let firstPage = this.firstPage;
     let firstPageUrlTemplate = this.firstPageUrlTemplate;
@@ -69,57 +104,61 @@ export default Component.extend({
     urlTemplate = urlTemplate.replace('{current}', firstPage);
 
     return urlTemplate;
-  }),
+  }
 
-  lastUrl: computed('urlTemplate', 'current', 'lastPage', function () {
+  get lastUrl() {
     let urlTemplate = this.urlTemplate;
     let lastPage = this.lastPage;
 
     urlTemplate = urlTemplate.replace('{current}', lastPage);
 
     return urlTemplate;
-  }),
+  }
 
-  currentPage: computed('current', function () {
+  get currentPage() {
     return Number(this.current);
-  }),
+  }
 
-  paginationSizeClass: computed('pager', 'paginationSize', 'size', function () {
+  get paginationSizeClass() {
     let size = this.size;
     let pager = this.pager;
 
     return !pager && size && (size === 'lg' || size === 'sm')
       ? 'pagination-' + size
       : '';
-  }),
+  }
 
-  isFirst: computed('current', 'currentPage', 'firstPage', function () {
+  get isFirst() {
     let currentPage = parseInt(this.currentPage);
     let firstPage = parseInt(this.firstPage);
 
     return currentPage === firstPage;
-  }),
+  }
 
-  isFirstDisabled: or('disabled', 'isFirst'),
+  get isFirstDisabled() {
+    return this.disabled || this.isFirst;
+  }
 
-  isLast: computed('current', 'currentPage', 'lastPage', function () {
+  get isLast() {
     let currentPage = parseInt(this.currentPage);
     let lastPage = parseInt(this.lastPage);
 
     return currentPage === lastPage;
-  }),
+  }
 
-  isLastDisabled: or('disabled', 'isLast'),
+  get isLastDisabled() {
+    return this.disabled || this.isLast;
+  }
 
-  isHidden: computed('hide', 'autoHide', 'count', function () {
+  get isHidden() {
     let autoHide = this.autoHide;
     let count = this.count;
     let hide = this.hide;
 
     return hide || (autoHide && (!count || count <= 1));
-  }),
+  }
 
-  pages: computed('count', 'countIn', 'countOut', 'current', 'seperator', function () {
+  get pages() {
     let seperator = this.seperator;
     let current = this.current;
     let count = this.count;
@@ -177,72 +216,77 @@ export default Component.extend({
     });
 
     return result;
-  }),
+  }
 
+  @action
   click(event) {
     // stop `#` from jumping to top of page
     event.preventDefault();
-  },
+  }
 
-  actions: {
-    next() {
-      if (this.disabled) {
-        return;
-      }
+  @action
+  next() {
+    if (this.disabled) {
+      return;
+    }
 
-      if (!this.isLast) {
-        let previous = parseInt(this.current, 10);
-        let current = previous + 1;
+    if (!this.isLast) {
+      let previous = parseInt(this.current, 10);
+      let current = previous + 1;
 
-        this.send('pageChanged', current, previous);
-      }
-    },
+      this.pageChanged(current, previous);
+    }
+  }
 
-    previous() {
-      if (this.disabled) {
-        return;
-      }
+  @action
+  previous() {
+    if (this.disabled) {
+      return;
+    }
 
-      if (!this.isFirst) {
-        let previous = parseInt(this.current, 10);
-        let current = previous - 1;
+    if (!this.isFirst) {
+      let previous = parseInt(this.current, 10);
+      let current = previous - 1;
 
-        this.send('pageChanged', current, previous);
-      }
-    },
+      this.pageChanged(current, previous);
+    }
+  }
 
-    first() {
-      if (this.disabled) {
-        return;
-      }
+  @action
+  first() {
+    if (this.disabled) {
+      return;
+    }
 
-      if (!this.isFirst) {
-        let previous = parseInt(this.current, 10);
-        let current = this.firstPage;
+    if (!this.isFirst) {
+      let previous = parseInt(this.current, 10);
+      let current = this.firstPage;
 
-        this.send('pageChanged', current, previous);
-      }
-    },
+      this.pageChanged(current, previous);
+    }
+  }
 
-    last() {
-      if (this.disabled) {
-        return;
-      }
+  @action
+  last() {
+    if (this.disabled) {
+      return;
+    }
 
-      if (!this.isLast) {
-        let previous = parseInt(this.current, 10);
-        let current = this.lastPage;
+    if (!this.isLast) {
+      let previous = parseInt(this.current, 10);
+      let current = this.lastPage;
 
-        this.send('pageChanged', current, previous);
-      }
-    },
+      this.pageChanged(current, previous);
+    }
+  }
 
-    pageChanged(page, previous) {
-      if (this.change) {
-        this.change(page, previous);
-      } else {
-        this.set('current', page);
-      }
-    },
-  },
-});
+  @action
+  pageChanged(page, previous) {
+    assert(
+      'The `changePage` argument is required for pagination to work properly',
+      typeof this.args.changePage === 'function',
+    );
+
+    this.args.changePage(page, previous);
+  }
+}
