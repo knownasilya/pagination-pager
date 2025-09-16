@@ -2,7 +2,6 @@
 
 
 [![NPM][npm-badge-img]][npm-badge-link]
-[![Build Status][travis-badge]][travis-badge-url]
 [![Ember Observer Score][ember-observer-badge]][ember-observer-url]
 
 Ember Component for Bootstrap 3 Pagination &amp; Pager components
@@ -122,7 +121,5 @@ ember github-pages:commit --message <message describing demo release>
 [3]: http://getbootstrap.com/components/#pagination-pager
 [npm-badge-img]: https://badge.fury.io/js/pagination-pager.svg
 [npm-badge-link]: http://badge.fury.io/js/pagination-pager
-[travis-badge]: https://travis-ci.org/knownasilya/pagination-pager.svg
-[travis-badge-url]: https://travis-ci.org/knownasilya/pagination-pager
 [ember-observer-badge]: http://emberobserver.com/badges/pagination-pager.svg
 [ember-observer-url]: http://emberobserver.com/addons/pagination-pager
