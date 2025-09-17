@@ -22,30 +22,6 @@ module.exports = async function () {
           },
         },
       },
-      {
-        name: 'ember-release',
-        npm: {
-          devDependencies: {
-            'ember-source': await getChannelURL('release'),
-          },
-        },
-      },
-      {
-        name: 'ember-beta',
-        npm: {
-          devDependencies: {
-            'ember-source': await getChannelURL('beta'),
-          },
-        },
-      },
-      {
-        name: 'ember-canary',
-        npm: {
-          devDependencies: {
-            'ember-source': await getChannelURL('canary'),
-          },
-        },
-      },
       embroiderSafe(),
       embroiderOptimized(),
     ],
