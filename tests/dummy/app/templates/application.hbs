@@ -58,22 +58,23 @@
   <div class="example">
     <div class="rendered">
       <div class="form-group">
-        <label>Count</label>
+        <label for="autoCount">Count</label>
         <Input
           @type="number"
           @value={{this.autoCount}}
           class="form-control"
           placeholder="Count"
+          id="autoCount"
         />
       </div>
       <div class="form-group">
-        <label>
+        <label for="hidden">
           <Input @type="checkbox" @checked={{this.hidden}} />
           Hide
         </label>
       </div>
       <div class="form-group">
-        <label>
+        <label for="autoHide">
           <Input @type="checkbox" @checked={{this.autoHide}} />
           Auto Hide
         </label>
@@ -94,21 +95,23 @@
   <div class="example">
     <div class="rendered">
       <div class="form-group">
-        <label>Count</label>
+        <label for="dynamicCount">Count</label>
         <Input
           @type="number"
           @value={{this.dynamicCount}}
           class="form-control"
           placeholder="Count"
+          id="dynamicCount"
         />
       </div>
       <div class="form-group">
-        <label>Current</label>
+        <label for="dynamicCurrent">Current</label>
         <Input
           @type="number"
           @value={{this.dynamicCurrent}}
           class="form-control"
           placeholder="Current"
+          id="dynamicCurrent"
         />
       </div>
 
@@ -125,8 +128,8 @@
     <div class="rendered"><PaginationPager
         @count={{this.dynamicCount}}
         @current={{this.dynamicCurrent}}
-        @change={{action "pageChanged"}}
         @urlTemplate="localhost:4200/pagination-pager/?page={current}"
+        {{on "change" this.pageChanged}}
       /></div>
     <pre>&lt;PaginationPager @count=&#123;&#123;this.dynamicCount&#125;&#125;
       @current=&#123;&#123;this.dynamicCurrent&#125;&#125;
@@ -178,8 +181,8 @@
     <div class="rendered"><PaginationPager
         @count={{5}}
         @current={{2}}
-        @change={{action "pageChanged"}}
         @disabled={{true}}
+        {{on "change" this.pageChanged}}
       /></div>
     <pre>&lt;PaginationPager @count=&#123;&#123;5&#125;&#125;
       @current=&#123;&#123;2&#125;&#125;

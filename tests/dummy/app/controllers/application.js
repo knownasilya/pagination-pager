@@ -1,17 +1,18 @@
 import Controller from '@ember/controller';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
-export default Controller.extend({
-  current: 2,
-  dynamicCount: 10,
-  dynamicCurrent: 5,
-  hidden: false,
-  autoHide: true,
+export default class ApplicationController extends Controller {
+  @tracked current = 2;
+  @tracked dynamicCount = 10;
+  @tracked dynamicCurrent = 5;
+  @tracked hidden = false;
+  @tracked autoHide = true;
 
-  actions: {
-    pageChanged(current, last) {
-      this.set('dynamicCurrent', current);
-      // eslint-disable-next-line no-console
-      console.log(current, last);
-    },
-  },
-});
+  @action
+  pageChanged(current, last) {
+    this.dynamicCurrent = current;
+    // eslint-disable-next-line no-console
+    console.log(current, last);
+  }
+}
