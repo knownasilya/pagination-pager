@@ -22,6 +22,14 @@ module.exports = async function () {
           },
         },
       },
+      {
+        name: 'ember-lts-5.12',
+        npm: {
+          devDependencies: {
+            'ember-source': '~5.12.0',
+          },
+        },
+      },
       embroiderSafe(),
       embroiderOptimized(),
     ],
